@@ -32,7 +32,7 @@ npm install -g grunt-cli
 npm test
 ```
 
-After that, just open a pull request and I will review it when I can!
+After that, just open a [pull request](https://github.com/mportuga/eslint-detailed-reporter/pulls) and I will review it when I can!
 
 ## Release History
 
