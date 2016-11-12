@@ -5,6 +5,17 @@
 
 > A Detailed HTML reporter for ESLINT based on the code written by Julian Laval for [eslint's default HTML reporter](http://eslint.org/docs/user-guide/formatters/#html) and inspired by Sven Piller's [eslint-formatter-markdown](https://github.com/sven-piller/eslint-formatter-markdown) and [mochajs](https://mochajs.org/)'s HTML coverage report.
 
+## Features
+
+- Total count of problems on linted files(counting both errors and warnings)
+- Tables with top 5 warnings and errors in the linted files.
+- View of source code with issues for files with issues.
+- Links to the rule descriptions for all default eslint rules.
+
+## Example
+
+[Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/example-report.html) to view an example report.
+
 ## Dependencies
 
 - [lodash](https://github.com/lodash/lodash): Lodash modular utilities.
