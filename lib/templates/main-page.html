@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<head>
+	<title>ESLint Report</title>
+	<style>
+		body {
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: normal;
+			margin: 0;
+			padding: 0;
+			color: #333;
+		}
+
+		code {
+			font: 12px monaco, monospace;
+		}
+
+		#overview {
+			padding: 20px 30px;
+		}
+
+		.container {
+			padding: 0 30px;
+		}
+
+		.page-header {
+			padding-bottom: 9px;
+			margin: 40px 0 20px;
+			border-bottom: 1px solid #eee;
+		}
+
+		.row {
+			display: table;
+			width: 100%;
+			padding: 15px 0;
+		}
+
+		.column {
+			padding: 0 15px;
+			display: table-cell;
+		}
+
+		.text-success {
+			color: #468847;
+		}
+
+		.text-warning {
+			color: #f0ad4e;
+		}
+
+		.text-error {
+			color: #b94a48;
+		}
+
+		td, th {
+			padding: 5px 10px;
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		h1 small {
+			text-transform: capitalize;
+		}
+
+		table#fileOverview {
+			margin: 30px;
+			width: calc(100% - 60px);
+			max-width: 1000px;
+			border-radius: 5px;
+			border: 1px solid #ddd;
+			border-spacing: 0;
+		}
+
+		th {
+			font-weight: 400;
+			font-size: normal;
+			text-align: left;
+			cursor: pointer;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th span {
+			font-weight: 700;
+			float: right;
+			margin-left: 20px;
+		}
+
+		th span:after {
+			content: "";
+			clear: both;
+			display: block;
+		}
+
+		tr:last-child td {
+			border-bottom: none;
+		}
+
+		#overview.bg-success, tr.bg-success th {
+			background: #dff0d8;
+			border-color: #d6e9c6;
+		}
+
+		#overview.bg-warning, tr.bg-warning th {
+			background: #fcf8e3;
+			border-color: #fbeed5;
+		}
+
+		#overview.bg-error, tr.bg-error th {
+			background: #f2dede;
+			border-color: #eed3d7;
+		}
+
+		td {
+			border-bottom: 1px solid #ddd;
+		}
+
+		td a {
+			color: #3a33d1;
+			text-decoration: none;
+		}
+
+		td a:hover {
+			color: #272296;
+			text-decoration: underline;
+		}
+		/* Summary Styles */
+
+		.summary-table {
+			width: 100%;
+		}
+
+		.summary-table, .summary-table th, .summary-table td {
+			color: #333;
+			border: 1px solid #ddd;
+			border-collapse: collapse;
+			margin: 0;
+		}
+
+		.summary-table th {
+			font-weight: 700;
+			text-transform: capitalize;
+			border-bottom-width: 2px;
+		}
+
+		/* Code Styles */
+
+		table.source-code {
+			width: 100%;
+			margin-top: 10px;
+			border-collapse: collapse;
+			border: 1px solid #cbcbcb;
+			color: #363636;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+
+		table.source-code thead {
+			display: none;
+		}
+
+		table.source-code td {
+			color: #363636;
+			border: none;
+		}
+
+		table.source-code td.line {
+			width: 20px;
+			background: #eaeaea;
+			text-align: center;
+			font-size: 11px;
+			padding: 0 10px;
+			color: #949494;
+		}
+
+		table.source-code tr.bg-warning td.line {
+			background: #fbeed5;
+		}
+
+		table.source-code tr.bg-warning td {
+			background: #fcf8e3;
+		}
+
+		table.source-code tr.bg-error td.line {
+			background: #e6c3c7;
+		}
+
+		table.source-code tr.bg-error td {
+			background: #f8d5d8;
+		}
+
+		table.source-code tr.issue {
+			background-color: hsl(240, 20%, 96%);
+			font-size: 12px;
+			box-shadow: inset 10px 10px 10px -12px hsl(240, 20%, 17%);
+			margin-top: 10px;
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 2px;
+		}
+
+		table.source-code tr.issue a {
+			float: right;
+		}
+
+		table.source-code td.source {
+			padding-left: 15px;
+			line-height: 15px;
+			white-space: pre;
+		}
+	</style>
+</head>
+<body>
+	<div id="overview" class="bg-<%= reportColor %>">
+		<h1>ESLint Report - <small class="text-<%= reportColor %>"><%= reportColor %></small></h1>
+	</div>
+	<div class="container">
+		<div id="summary">
+			<h2 class="page-header">Summary</h2>
+			<div><%= reportSummary %></div>
+			<div class="row">
+				<div class="column">
+					<h3 class="text-error">Top Errors</h3>
+					<table class="summary-table"><thead>
+						<tr>
+							<th>rule</th>
+							<th>count</th>
+						</tr>
+					</thead><tbody>
+						<%= topErrors %>
+					</tbody></table>
+				</div>
+				<div class="column">
+					<h3 class="text-warning">Top Warnings</h3>
+					<table class="summary-table"><thead>
+						<tr>
+							<th>rule</th>
+							<th>count</th>
+						</tr>
+					</thead><tbody>
+						<%= topWarnings %>
+					</tbody></table>
+				</div>
+			</div>
+		</div>
+		<div id="details">
+			<h2 class="page-header">Details</h2>
+			<table id="fileOverview">
+				<tbody>
+					<%= results %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var groups = document.querySelectorAll("tr[data-group]");
+		for (i = 0; i < groups.length; i++) {
+			groups[i].addEventListener("click", function() {
+				var inGroup = document.getElementsByClassName(this.getAttribute("data-group"));
+				this.innerHTML = (this.innerHTML.indexOf("+") > -1) ? this.innerHTML.replace("+", "-") : this.innerHTML.replace("-", "+");
+				for (var j = 0; j < inGroup.length; j++) {
+					inGroup[j].style.display = (inGroup[j].style.display !== "none") ? "none" : "table-row";
+				}
+			});
+		}
+	</script>
+</body>
+</html>
