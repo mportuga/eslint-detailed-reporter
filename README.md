@@ -49,6 +49,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
+- 0.5.2 Fixing issue with npm package that caused report not to run
 - 0.5.1 Initial release
 
 ## License
