@@ -1,6 +1,6 @@
 {
   "name": "eslint-detailed-reporter",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Detailed HTML reporter for ESLINT.",
   "main": "lib/detailed.js",
   "scripts": {
