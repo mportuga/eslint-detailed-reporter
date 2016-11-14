@@ -1,6 +1,6 @@
 # eslint-detailed-reporter
 
-[![npm version](https://img.shields.io/npm/v/eslint-formatter-markdown.svg)](https://www.npmjs.com/package/eslint-detailed-reporter)
+[![npm version](https://img.shields.io/npm/v/eslint-detailed-reporter.svg)](https://www.npmjs.com/package/eslint-detailed-reporter)
 [![Downloads/month](https://img.shields.io/npm/dm/eslint-detailed-reporter.svg)](https://www.npmjs.com/package/eslint-detailed-reporter)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mportuga/eslint-detailed-reporter/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/mportuga/eslint-detailed-reporter.svg?style=plastic)](https://github.com/mportuga/eslint-detailed-reporter/issues)
