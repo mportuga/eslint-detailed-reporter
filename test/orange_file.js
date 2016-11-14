@@ -1,17 +1,9 @@
 'use strict';
 
-/**
- * Dummy function for testing
- *
- * @param {string} variable Variable
- * @returns {string} Output result of variable check
- */
-function ok(variable) {
-  if (variable === '2') {
-    return 'Error'; 
+function addOne(i) {
+  if (i != NaN) {
+    return i ++
   } else {
-  return "Warning"; 
+    return
   }
-}
-
-exports.ok = ok;
+};

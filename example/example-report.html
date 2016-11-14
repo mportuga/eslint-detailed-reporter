@@ -219,7 +219,7 @@
 	<div class="container">
 		<div id="summary">
 			<h2 class="page-header">Summary</h2>
-			<div>6 problems (2 errors, 4 warnings)</div>
+			<div>22 problems (10 errors, 12 warnings)</div>
 			<div class="row">
 				<div class="column">
 					<h3 class="text-error">Top Errors</h3>
@@ -230,7 +230,23 @@
 						</tr>
 					</thead><tbody>
 						<tr>
-	<td><a href="http://eslint.org/docs/rules/quotes" target="_blank">quotes</a></td>
+	<td><a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a></td>
 	<td>2</td>
 </tr>
 					</tbody></table>
@@ -244,8 +260,16 @@
 						</tr>
 					</thead><tbody>
 						<tr>
-	<td><a href="http://eslint.org/docs/rules/no-trailing-spaces" target="_blank">no-trailing-spaces</a></td>
+	<td><a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a></td>
+	<td>6</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a></td>
 	<td>4</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a></td>
+	<td>2</td>
 </tr>
 					</tbody></table>
 				</div>
@@ -284,7 +308,7 @@
 <tr class="bg-error" data-group="f-1">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/orange_file.js
-        <span>3 problems (1 error, 2 warnings)</span>
+        <span>11 problems (5 errors, 6 warnings)</span>
     </th>
 </tr>
 <tr style="display:none" class="f-1">
@@ -307,101 +331,109 @@
 	<td class="source"><code></code></td>
 </tr>
 
-<tr class="hit bg-success">
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 10: "'addOne' is defined but never used."
+		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
+	</td>
+</tr><tr class="hit bg-error">
 	<td class="line">3</td>
-	<td class="source"><code>/**</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">4</td>
-	<td class="source"><code> * Dummy function for testing</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">5</td>
-	<td class="source"><code> *</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">6</td>
-	<td class="source"><code> * @param {string} variable Variable</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">7</td>
-	<td class="source"><code> * @returns {string} Output result of variable check</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">8</td>
-	<td class="source"><code> */</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">9</td>
-	<td class="source"><code>function ok(variable) {</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">10</td>
-	<td class="source"><code>  if (variable === '2') {</code></td>
+	<td class="source"><code>function addOne(i) {</code></td>
 </tr>
 
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 20: "Trailing spaces not allowed."
-		<a href="http://eslint.org/docs/rules/no-trailing-spaces" target="_blank">no-trailing-spaces</a>
+		Column 3: "Expected indentation of 4 spaces but found 2."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 7: "Use the isNaN function to compare with NaN."
+		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
 	</td>
 </tr><tr class="hit bg-warning">
-	<td class="line">11</td>
-	<td class="source"><code>    return 'Error'; </code></td>
+	<td class="line">4</td>
+	<td class="source"><code>  if (i != NaN) {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 12: "Unexpected space before unary operator '++'."
+		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 16: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">5</td>
+	<td class="source"><code>    return i ++</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 10: "Unnecessary 'else' after 'return'."
+		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">6</td>
+	<td class="source"><code>  } else {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 5: "Expected a return value."
+		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 11: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">7</td>
+	<td class="source"><code>    return</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">12</td>
-	<td class="source"><code>  } else {</code></td>
+	<td class="line">8</td>
+	<td class="source"><code>  }</code></td>
 </tr>
 
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 10: "Strings must use singlequote."
-		<a href="http://eslint.org/docs/rules/quotes" target="_blank">quotes</a>
-	</td>
-</tr><tr class="issue">
-	<td><strong class="text-warning">Warning<strong></td>
-	<td>
-		Column 20: "Trailing spaces not allowed."
-		<a href="http://eslint.org/docs/rules/no-trailing-spaces" target="_blank">no-trailing-spaces</a>
+		Column 2: "Unnecessary semicolon."
+		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
 	</td>
 </tr><tr class="hit bg-error">
-	<td class="line">13</td>
-	<td class="source"><code>  return "Warning"; </code></td>
+	<td class="line">9</td>
+	<td class="source"><code>};</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">14</td>
-	<td class="source"><code>  }</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">15</td>
-	<td class="source"><code>}</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">16</td>
-	<td class="source"><code></code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">17</td>
-	<td class="source"><code>exports.ok = ok;</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">18</td>
+	<td class="line">10</td>
 	<td class="source"><code></code></td>
 </tr>
 
@@ -413,7 +445,7 @@
 <tr class="bg-error" data-group="f-2">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/red_file.js
-        <span>1 problem (1 error, 0 warnings)</span>
+        <span>5 problems (5 errors, 0 warnings)</span>
     </th>
 </tr>
 <tr style="display:none" class="f-2">
@@ -436,89 +468,68 @@
 	<td class="source"><code></code></td>
 </tr>
 
-<tr class="hit bg-success">
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 10: "'addOne' is defined but never used."
+		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
+	</td>
+</tr><tr class="hit bg-error">
 	<td class="line">3</td>
-	<td class="source"><code>/**</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">4</td>
-	<td class="source"><code> * Dummy function for testing</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">5</td>
-	<td class="source"><code> *</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">6</td>
-	<td class="source"><code> * @param {string} variable Variable</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">7</td>
-	<td class="source"><code> * @returns {string} Output result of variable check</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">8</td>
-	<td class="source"><code> */</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">9</td>
-	<td class="source"><code>function ok(variable) {</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">10</td>
-	<td class="source"><code>  if (variable === '2') {</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">11</td>
-	<td class="source"><code>    return 'Error';</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">12</td>
-	<td class="source"><code>  } else {</code></td>
+	<td class="source"><code>function addOne(i) {</code></td>
 </tr>
 
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 12: "Strings must use singlequote."
-		<a href="http://eslint.org/docs/rules/quotes" target="_blank">quotes</a>
+		Column 9: "Use the isNaN function to compare with NaN."
+		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
 	</td>
 </tr><tr class="hit bg-error">
-	<td class="line">13</td>
-	<td class="source"><code>    return "Warning";</code></td>
+	<td class="line">4</td>
+	<td class="source"><code>    if (i != NaN) {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 16: "Unexpected space before unary operator '++'."
+		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">5</td>
+	<td class="source"><code>        return i ++;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">14</td>
-	<td class="source"><code>  }</code></td>
+	<td class="line">6</td>
+	<td class="source"><code>    }</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 5: "Expected a return value."
+		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">7</td>
+	<td class="source"><code>    return;</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 2: "Unnecessary semicolon."
+		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">8</td>
+	<td class="source"><code>};</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">15</td>
-	<td class="source"><code>}</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">16</td>
-	<td class="source"><code></code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">17</td>
-	<td class="source"><code>exports.ok = ok;</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">18</td>
+	<td class="line">9</td>
 	<td class="source"><code></code></td>
 </tr>
 
@@ -530,7 +541,7 @@
 <tr class="bg-warning" data-group="f-3">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/yellow_file.js
-        <span>2 problems (0 errors, 2 warnings)</span>
+        <span>6 problems (0 errors, 6 warnings)</span>
     </th>
 </tr>
 <tr style="display:none" class="f-3">
@@ -555,93 +566,87 @@
 
 <tr class="hit bg-success">
 	<td class="line">3</td>
-	<td class="source"><code>/**</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">4</td>
-	<td class="source"><code> * Dummy function for testing</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">5</td>
-	<td class="source"><code> *</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">6</td>
-	<td class="source"><code> * @param {string} variable Variable</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">7</td>
-	<td class="source"><code> * @returns {string} Output result of variable check</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">8</td>
-	<td class="source"><code> */</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">9</td>
-	<td class="source"><code>function ok(variable) {</code></td>
-</tr>
-
-<tr class="hit bg-success">
-	<td class="line">10</td>
-	<td class="source"><code>  if (variable === '2') {</code></td>
+	<td class="source"><code>function addOne(i) {</code></td>
 </tr>
 
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 20: "Trailing spaces not allowed."
-		<a href="http://eslint.org/docs/rules/no-trailing-spaces" target="_blank">no-trailing-spaces</a>
+		Column 3: "Expected indentation of 4 spaces but found 2."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="hit bg-warning">
-	<td class="line">11</td>
-	<td class="source"><code>    return 'Error'; </code></td>
+	<td class="line">4</td>
+	<td class="source"><code>  if (!isNaN(i)) {</code></td>
 </tr>
 
-<tr class="hit bg-success">
-	<td class="line">12</td>
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 15: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">5</td>
+	<td class="source"><code>    return i++</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 10: "Unnecessary 'else' after 'return'."
+		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">6</td>
 	<td class="source"><code>  } else {</code></td>
 </tr>
 
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 20: "Trailing spaces not allowed."
-		<a href="http://eslint.org/docs/rules/no-trailing-spaces" target="_blank">no-trailing-spaces</a>
+		Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 15: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
 	</td>
 </tr><tr class="hit bg-warning">
-	<td class="line">13</td>
-	<td class="source"><code>  return 'Warning'; </code></td>
+	<td class="line">7</td>
+	<td class="source"><code>    return NaN</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">14</td>
+	<td class="line">8</td>
 	<td class="source"><code>  }</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">15</td>
+	<td class="line">9</td>
 	<td class="source"><code>}</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">16</td>
+	<td class="line">10</td>
 	<td class="source"><code></code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">17</td>
-	<td class="source"><code>exports.ok = ok;</code></td>
+	<td class="line">11</td>
+	<td class="source"><code>exports.addOne = addOne;</code></td>
 </tr>
 
 <tr class="hit bg-success">
-	<td class="line">18</td>
+	<td class="line">12</td>
 	<td class="source"><code></code></td>
 </tr>
 
