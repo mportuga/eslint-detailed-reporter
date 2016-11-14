@@ -47,7 +47,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
-- 0.9.0 Initial release
+- 0.5.0 Initial release
 
 ## License
 
