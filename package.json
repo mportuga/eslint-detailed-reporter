@@ -4,7 +4,8 @@
   "description": "Detailed HTML reporter for ESLINT.",
   "main": "index.js",
   "scripts": {
-    "test": "grunt eslint"
+    "test": "grunt eslint",
+    "postversion": "git push && git push --tags && npm publish ./"
   },
   "repository": {
     "type": "git",
