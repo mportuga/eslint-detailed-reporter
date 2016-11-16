@@ -18,6 +18,62 @@
 
 [Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/example-report.html) to view an example report.
 
+## Installation
+
+```sh
+npm install eslint-detailed-reporter --save-dev
+```
+
+## Usage
+
+### With [ESLint CLI](http://eslint.org/docs/user-guide/command-line-interface):
+
+```sh
+# Single file
+eslint file.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
+
+# Recurse current directory
+eslint . -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
+```
+
+### With [Grunt ESLint](https://www.npmjs.com/package/grunt-eslint):
+
+```js
+module.exports = function(grunt) {
+	'use strict';
+
+	require('load-grunt-tasks')(grunt);
+
+	grunt.initConfig({
+		eslint: {
+			options: {
+				outputFile: 'example/example-report.html',
+				format: require('eslint-detailed-reporter')
+			},
+			target: ['test/**/*.js']
+		}
+	});
+
+	grunt.registerTask('default', ['eslint']);
+};
+```
+
+### With [Gulp ESLint](https://github.com/adametry/gulp-eslint):
+
+```js
+var eslint   = require('gulp-eslint'),
+    reporter = require('eslint-detailed-reporter'),
+    path     = require('path'),
+    fs       = require('fs');
+
+gulp.src(['js/**/*.js'])
+  .pipe(eslint())
+  .pipe(eslint.format(reporter, function(results) {
+      fs.writeFileSync(path.join(__dirname, 'report-results.html'), results);
+    })
+  );
+```
+
 ## Dependencies
 
 - [lodash](https://github.com/lodash/lodash): Lodash modular utilities.
@@ -49,6 +105,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
+- 0.5.4 Made it so that Top Errors and Top Warnings table only show up when needed.
 - 0.5.3 Fixing issue with npm package that caused report not to run
 - 0.5.1 Initial release
 
