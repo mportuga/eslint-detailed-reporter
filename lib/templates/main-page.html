@@ -12,28 +12,7 @@
 			<h2 class="page-header">Summary</h2>
 			<div><%= reportSummary %></div>
 			<div class="row">
-				<div class="column">
-					<h3 class="text-error">Top Errors</h3>
-					<table class="summary-table"><thead>
-						<tr>
-							<th>rule</th>
-							<th>count</th>
-						</tr>
-					</thead><tbody>
-						<%= topErrors %>
-					</tbody></table>
-				</div>
-				<div class="column">
-					<h3 class="text-warning">Top Warnings</h3>
-					<table class="summary-table"><thead>
-						<tr>
-							<th>rule</th>
-							<th>count</th>
-						</tr>
-					</thead><tbody>
-						<%= topWarnings %>
-					</tbody></table>
-				</div>
+				<%= summaryDetails %>
 			</div>
 		</div>
 		<div id="details">
