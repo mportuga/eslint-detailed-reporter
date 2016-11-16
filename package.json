@@ -6,6 +6,10 @@
   "scripts": {
     "test": "grunt eslint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mportuga/eslint-detailed-reporter"
+  },
   "keywords": [
     "eslint",
     "formatter",
@@ -16,8 +20,10 @@
     "detailed",
     "plato"
   ],
-  "author": "Marcelo S. Portugal <marceloquarion@gmail.com>",
+  "author": "Marcelo S. Portugal <marceloquarion@gmail.com> (http://portugaldev.com/)",
   "license": "MIT",
+  "homepage": "https://github.com/mportuga/eslint-detailed-reporter",
+  "bugs": "https://github.com/mportuga/eslint-detailed-reporter/issues",
   "dependencies": {
     "lodash": "^4.16.6"
   },
