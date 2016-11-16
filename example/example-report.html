@@ -212,14 +212,43 @@
 </style>
 </head>
 <body>
-	<div id="overview" class="bg-warning">
-		<h1>ESLint Report - <small class="text-warning">warning</small></h1>
+	<div id="overview" class="bg-error">
+		<h1>ESLint Report - <small class="text-error">error</small></h1>
 	</div>
 	<div class="container">
 		<div id="summary">
 			<h2 class="page-header">Summary</h2>
-			<div>6 problems (0 errors, 6 warnings)</div>
+			<div>27 problems (15 errors, 12 warnings)</div>
 			<div class="row"><div class="column">
+	<h3 class="text-error">Top errors</h3>
+	<table class="summary-table"><thead>
+		<tr>
+			<th>rule</th>
+			<th>count</th>
+		</tr>
+	</thead><tbody>
+		<tr>
+	<td><a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a></td>
+	<td>2</td>
+</tr>
+	</tbody></table>
+</div><div class="column">
 	<h3 class="text-warning">Top warnings</h3>
 	<table class="summary-table"><thead>
 		<tr>
@@ -229,15 +258,15 @@
 	</thead><tbody>
 		<tr>
 	<td><a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a></td>
-	<td>3</td>
+	<td>6</td>
 </tr>
 <tr>
 	<td><a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a></td>
-	<td>2</td>
+	<td>4</td>
 </tr>
 <tr>
 	<td><a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a></td>
-	<td>1</td>
+	<td>2</td>
 </tr>
 	</tbody></table>
 </div></div><div class="row">
@@ -251,6 +280,21 @@
 			</tr>
 		</thead><tbody>
 			<tr>
+	<td><a href="#usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestOrangeFileJs">/Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/orange_file.js</a></td>
+	<td>5</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td><a href="#usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserDirectiveJs">/Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/angular-rules/greetUserDirective.js</a></td>
+	<td>5</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td><a href="#usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestRedFileJs">/Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/red_file.js</a></td>
+	<td>5</td>
+	<td>0</td>
+</tr>
+<tr>
 	<td><a href="#usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestYellowFileJs">/Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/yellow_file.js</a></td>
 	<td>0</td>
 	<td>6</td>
@@ -264,13 +308,449 @@
 			<h2 class="page-header">Details</h2>
 			<table id="fileOverview">
 				<tbody>
-					<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestYellowFileJs" class="bg-warning" data-group="f-0">
+					<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserComponentJs" class="bg-success" data-group="f-0">
+    <th colspan="4">
+        [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/angular-rules/greet-user.component.js
+        <span>0 problems</span>
+    </th>
+</tr>
+<tr style="display:none" class="f-0">
+	<td colspan="4">
+		<table class="source-code">
+			<thead>
+				<tr>
+					<th>Line</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="hit bg-success">
+	<td class="line">1</td>
+	<td class="source"><code>No Issues</code></td>
+</tr>
+
+			</tbody>
+		</table>
+	</td>
+</tr>
+
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserDirectiveJs" class="bg-error" data-group="f-1">
+    <th colspan="4">
+        [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/angular-rules/greetUserDirective.js
+        <span>5 problems (5 errors, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display:none" class="f-1">
+	<td colspan="4">
+		<table class="source-code">
+			<thead>
+				<tr>
+					<th>Line</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 1: "Based on the Component-First Pattern, you should avoid the use of controllers"
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/no-controller.md" target="_blank">angular/no-controller</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 1: "There may be at most 1 AngularJS component per file, but found 2"
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/component-limit.md" target="_blank">angular/component-limit</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">1</td>
+	<td class="source"><code>angular.module('myApp')</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">2</td>
+	<td class="source"><code>    .controller('GreetUserController', function GreetUserController($scope) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">3</td>
+	<td class="source"><code>        var users = [{name:'world'}, {name:'earth'}, {name:'planet'}, {name:'mars'}];</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">4</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">5</td>
+	<td class="source"><code>        findFirstUser();</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">6</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">7</td>
+	<td class="source"><code>        function findFirstUser() {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 13: "You should not set properties on $scope in controllers. Use controllerAs syntax and add data to "this""
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/controller-as.md" target="_blank">angular/controller-as</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 35: "Prefer '_.map' over the native function."
+		<a href="https://github.com/wix/eslint-plugin-lodash/blob/master/docs/rules/prefer-lodash-method.md" target="_blank">lodash/prefer-lodash-method</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">8</td>
+	<td class="source"><code>            $scope.user = _.first(users.map(function(user) {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">9</td>
+	<td class="source"><code>                return user.name;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">10</td>
+	<td class="source"><code>            }));</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">11</td>
+	<td class="source"><code>        }</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">12</td>
+	<td class="source"><code>    })</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">13</td>
+	<td class="source"><code>    .directive('greetUser', function(){</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 9: "Directive should be implemented with the component method."
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/prefer-component.md" target="_blank">angular/prefer-component</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">14</td>
+	<td class="source"><code>        return {</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">15</td>
+	<td class="source"><code>            restrict: 'E',</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">16</td>
+	<td class="source"><code>            replace: true,</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">17</td>
+	<td class="source"><code>            template: 'Hello, {{user}}!',</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">18</td>
+	<td class="source"><code>            controller: 'GreetUserController'</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">19</td>
+	<td class="source"><code>        };</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">20</td>
+	<td class="source"><code>    });</code></td>
+</tr>
+
+			</tbody>
+		</table>
+	</td>
+</tr>
+
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestGreenFileJs" class="bg-success" data-group="f-2">
+    <th colspan="4">
+        [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/green_file.js
+        <span>0 problems</span>
+    </th>
+</tr>
+<tr style="display:none" class="f-2">
+	<td colspan="4">
+		<table class="source-code">
+			<thead>
+				<tr>
+					<th>Line</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="hit bg-success">
+	<td class="line">1</td>
+	<td class="source"><code>No Issues</code></td>
+</tr>
+
+			</tbody>
+		</table>
+	</td>
+</tr>
+
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestOrangeFileJs" class="bg-error" data-group="f-3">
+    <th colspan="4">
+        [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/orange_file.js
+        <span>11 problems (5 errors, 6 warnings)</span>
+    </th>
+</tr>
+<tr style="display:none" class="f-3">
+	<td colspan="4">
+		<table class="source-code">
+			<thead>
+				<tr>
+					<th>Line</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="hit bg-success">
+	<td class="line">1</td>
+	<td class="source"><code>'use strict';</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">2</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 10: "'addOne' is defined but never used."
+		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">3</td>
+	<td class="source"><code>function addOne(i) {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 3: "Expected indentation of 4 spaces but found 2."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 7: "Use the isNaN function to compare with NaN."
+		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">4</td>
+	<td class="source"><code>  if (i != NaN) {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 12: "Unexpected space before unary operator '++'."
+		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 16: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">5</td>
+	<td class="source"><code>    return i ++</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 10: "Unnecessary 'else' after 'return'."
+		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">6</td>
+	<td class="source"><code>  } else {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 5: "Expected a return value."
+		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Column 11: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="hit bg-warning">
+	<td class="line">7</td>
+	<td class="source"><code>    return</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">8</td>
+	<td class="source"><code>  }</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 2: "Unnecessary semicolon."
+		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">9</td>
+	<td class="source"><code>};</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">10</td>
+	<td class="source"><code></code></td>
+</tr>
+
+			</tbody>
+		</table>
+	</td>
+</tr>
+
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestRedFileJs" class="bg-error" data-group="f-4">
+    <th colspan="4">
+        [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/red_file.js
+        <span>5 problems (5 errors, 0 warnings)</span>
+    </th>
+</tr>
+<tr style="display:none" class="f-4">
+	<td colspan="4">
+		<table class="source-code">
+			<thead>
+				<tr>
+					<th>Line</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="hit bg-success">
+	<td class="line">1</td>
+	<td class="source"><code>'use strict';</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">2</td>
+	<td class="source"><code></code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 10: "'addOne' is defined but never used."
+		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">3</td>
+	<td class="source"><code>function addOne(i) {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 9: "Use the isNaN function to compare with NaN."
+		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">4</td>
+	<td class="source"><code>    if (i != NaN) {</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 16: "Unexpected space before unary operator '++'."
+		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">5</td>
+	<td class="source"><code>        return i ++;</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">6</td>
+	<td class="source"><code>    }</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 5: "Expected a return value."
+		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">7</td>
+	<td class="source"><code>    return;</code></td>
+</tr>
+
+<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Column 2: "Unnecessary semicolon."
+		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
+	</td>
+</tr><tr class="hit bg-error">
+	<td class="line">8</td>
+	<td class="source"><code>};</code></td>
+</tr>
+
+<tr class="hit bg-success">
+	<td class="line">9</td>
+	<td class="source"><code></code></td>
+</tr>
+
+			</tbody>
+		</table>
+	</td>
+</tr>
+
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestYellowFileJs" class="bg-warning" data-group="f-5">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/yellow_file.js
         <span>6 problems (0 errors, 6 warnings)</span>
     </th>
 </tr>
-<tr style="display:none" class="f-0">
+<tr style="display:none" class="f-5">
 	<td colspan="4">
 		<table class="source-code">
 			<thead>
