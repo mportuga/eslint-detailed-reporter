@@ -11,6 +11,7 @@
 
 - Total count of problems on linted files(counting both errors and warnings)
 - Tables with top 5 warnings and errors in the linted files.
+- List of top 5 files with the most problems.
 - View of source code with issues for files with issues.
 - Links to the rule descriptions for all default eslint rules.
 
@@ -105,9 +106,10 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
+- 0.5.5 Added list of top 5 files with the most problems.
 - 0.5.4 Made it so that Top Errors and Top Warnings table only show up when needed.
-- 0.5.3 Fixing issue with npm package that caused report not to run
-- 0.5.1 Initial release
+- 0.5.3 Fixing issue with npm package that caused report not to run.
+- 0.5.1 Initial release.
 
 ## License
 
