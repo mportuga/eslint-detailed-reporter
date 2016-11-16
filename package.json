@@ -6,11 +6,6 @@
   "scripts": {
     "test": "grunt eslint"
   },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mportuga/eslint-detailed-reporter"
