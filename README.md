@@ -106,6 +106,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
+- 0.5.7 Minor CSS updates.
 - 0.5.6 Added support for angular and lodash plugins(Fixing links to description of those rules).
 - 0.5.5 Added list of top 5 files with the most problems.
 - 0.5.4 Made it so that Top Errors and Top Warnings table only show up when needed.

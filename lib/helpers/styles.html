@@ -13,8 +13,14 @@
 	}
 
 	#overview {
+		background: #f3f3f3;
 		padding: 20px 30px;
+		border-bottom: 10px solid #ccc;
 	}
+
+	#overview.bg-success {border-color: #008000;}
+	#overview.bg-warning {border-color: #ffa500;}
+	#overview.bg-error {border-color: #f00;}
 
 	.container {
 		padding: 0 30px;
@@ -63,7 +69,6 @@
 	table#fileOverview {
 		margin: 30px;
 		width: calc(100% - 60px);
-		max-width: 1000px;
 		border-radius: 5px;
 		border: 1px solid #ddd;
 		border-spacing: 0;
@@ -93,17 +98,17 @@
 		border-bottom: none;
 	}
 
-	#overview.bg-success, tr.bg-success th {
+	tr.bg-success th {
 		background: #dff0d8;
 		border-color: #d6e9c6;
 	}
 
-	#overview.bg-warning, tr.bg-warning th {
+	tr.bg-warning th {
 		background: #fcf8e3;
 		border-color: #fbeed5;
 	}
 
-	#overview.bg-error, tr.bg-error th {
+	tr.bg-error th {
 		background: #f2dede;
 		border-color: #eed3d7;
 	}
