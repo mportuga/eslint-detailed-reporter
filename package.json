@@ -4,7 +4,9 @@
   "description": "Detailed HTML reporter for ESLINT.",
   "main": "index.js",
   "scripts": {
-    "test": "grunt eslint",
+    "test": "npm run command-line && npm run grunt-test",
+    "command-line": "eslint test/green_file.js -f lib/detailed.js -o example/success-report.html",
+    "grunt-test": "grunt force:eslint",
     "postversion": "git push && git push --tags && npm publish ./"
   },
   "repository": {
@@ -36,6 +38,7 @@
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-eslint": "^19.0.0",
+    "grunt-force-task": "^2.0.0",
     "load-grunt-tasks": "^3.5.2"
   }
 }
