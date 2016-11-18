@@ -15,6 +15,21 @@
 		</div>
 		<div id="details">
 			<h2 class="page-header">Details</h2>
+			<fieldset class="filters">
+				<legend>Filters:</legend>
+				<label>
+					<input type="radio" name="filters" value="lint-result" checked>
+					<span class="btn-radio">All</span>
+				</label>
+				<label>
+					<input type="radio" name="filters" value="warning">
+					<span class="btn-radio text-warning">Warnings</span>
+				</label>
+				<label>
+					<input type="radio" name="filters" value="error">
+					<span class="btn-radio text-error">Errors</span>
+				</label>
+			</fieldset>
 			<table id="fileOverview">
 				<tbody>
 					<%= results %>

@@ -1,12 +1,29 @@
 <script type="text/javascript">
-	var groups = document.querySelectorAll("tr[data-group]");
-	for (i = 0; i < groups.length; i++) {
-		groups[i].addEventListener("click", function() {
-			var inGroup = document.getElementsByClassName(this.getAttribute("data-group"));
-			this.innerHTML = (this.innerHTML.indexOf("+") > -1) ? this.innerHTML.replace("+", "-") : this.innerHTML.replace("-", "+");
+	var lintResults = document.querySelectorAll('tr.lint-result'),
+		filters = document.querySelectorAll('input[name="filters"]');
+
+	// accordion
+	lintResults.forEach(function setUpAccordion(result) {
+		result.addEventListener('click', function() {
+			var inGroup = document.getElementsByClassName(this.getAttribute('data-group'));
+
+			this.innerHTML = (this.innerHTML.indexOf('+') > -1) ? this.innerHTML.replace('+', '-') : this.innerHTML.replace('-', '+');
 			for (var j = 0; j < inGroup.length; j++) {
-				inGroup[j].style.display = (inGroup[j].style.display !== "none") ? "none" : "table-row";
+				inGroup[j].style.display = (inGroup[j].style.display !== 'none') ? 'none' : 'table-row';
 			}
+		});
+	});
+
+	// filter
+	filters.forEach(function addChangeListener(filter) {
+		filter.addEventListener('change', filterResults);
+	});
+
+	function filterResults() {
+		var filterValue = document.querySelector('input[name="filters"]:checked').value;
+
+		lintResults.forEach(function filterByClass(result) {
+			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
 		});
 	}
 </script>

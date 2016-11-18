@@ -25,6 +25,10 @@
 	#overview.bg-warning {border-color: #ffa500;}
 	#overview.bg-error {border-color: #f00;}
 
+	.bg-success {background: #dff0d8;}
+	.bg-warning {background: #fcf8e3;}
+	.bg-error {background: #f2dede;}
+
 	.container {
 		padding: 0 30px;
 	}
@@ -102,17 +106,14 @@
 	}
 
 	tr.bg-success th {
-		background: #dff0d8;
 		border-color: #d6e9c6;
 	}
 
 	tr.bg-warning th {
-		background: #fcf8e3;
 		border-color: #fbeed5;
 	}
 
 	tr.bg-error th {
-		background: #f2dede;
 		border-color: #eed3d7;
 	}
 
@@ -148,6 +149,33 @@
 		border-bottom-width: 2px;
 	}
 
+	/* Filters */
+
+	.filters {border: none;}
+	.filters legend {
+		font-weight: bold;
+	}
+	.filters input[type="radio"] {
+		position: absolute;
+		opacity: 0;
+	}
+	.btn-radio {
+		display: inline-block;
+		font-weight: bold;
+		background: #fff;
+		border: 1px solid #ccc;
+		padding: 6px 12px;
+		cursor: pointer;
+	}
+	input[type="radio"]:focus + .btn-radio {
+		outline: 2px dotted #000;
+	}
+	input[type="radio"]:checked + .btn-radio {
+		background: #e6e6e6;
+		-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	}
+
 	/* Code Styles */
 
 	table.source-code {
@@ -177,6 +205,10 @@
 		font-size: 11px;
 		padding: 0 10px;
 		color: #949494;
+	}
+
+	table.source-code tr.bg-success {
+		background: #fff;
 	}
 
 	table.source-code tr.bg-warning td.line {
@@ -311,9 +343,24 @@
 		</div>
 		<div id="details">
 			<h2 class="page-header">Details</h2>
+			<fieldset class="filters">
+				<legend>Filters:</legend>
+				<label>
+					<input type="radio" name="filters" value="lint-result" checked>
+					<span class="btn-radio">All</span>
+				</label>
+				<label>
+					<input type="radio" name="filters" value="warning">
+					<span class="btn-radio text-warning">Warnings</span>
+				</label>
+				<label>
+					<input type="radio" name="filters" value="error">
+					<span class="btn-radio text-error">Errors</span>
+				</label>
+			</fieldset>
 			<table id="fileOverview">
 				<tbody>
-					<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserComponentJs" class="bg-success" data-group="f-0">
+					<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserComponentJs" class="lint-result bg-success" data-group="f-0" data-problem-count="0">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/angular-rules/greet-user.component.js
         <span>0 problems</span>
@@ -339,7 +386,7 @@
 	</td>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserDirectiveJs" class="bg-error" data-group="f-1">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestAngularRulesGreetUserDirectiveJs" class="lint-result bg-error" data-group="f-1" data-problem-count="5">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/angular-rules/greetUserDirective.js
         <span>5 problems (5 errors, 0 warnings)</span>
@@ -490,7 +537,7 @@
 	</td>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestGreenFileJs" class="bg-success" data-group="f-2">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestGreenFileJs" class="lint-result bg-success" data-group="f-2" data-problem-count="0">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/green_file.js
         <span>0 problems</span>
@@ -516,7 +563,7 @@
 	</td>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestOrangeFileJs" class="bg-error" data-group="f-3">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestOrangeFileJs" class="lint-result bg-error" data-group="f-3" data-problem-count="11">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/orange_file.js
         <span>11 problems (5 errors, 6 warnings)</span>
@@ -653,7 +700,7 @@
 	</td>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestRedFileJs" class="bg-error" data-group="f-4">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestRedFileJs" class="lint-result bg-error" data-group="f-4" data-problem-count="5">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/red_file.js
         <span>5 problems (5 errors, 0 warnings)</span>
@@ -749,7 +796,7 @@
 	</td>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestYellowFileJs" class="bg-warning" data-group="f-5">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterTestYellowFileJs" class="lint-result bg-warning" data-group="f-5" data-problem-count="6">
     <th colspan="4">
         [+] /Users/marcelo.portugal/WebstormProjects/eslint-detailed-reporter/test/yellow_file.js
         <span>6 problems (0 errors, 6 warnings)</span>
@@ -871,14 +918,31 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	var groups = document.querySelectorAll("tr[data-group]");
-	for (i = 0; i < groups.length; i++) {
-		groups[i].addEventListener("click", function() {
-			var inGroup = document.getElementsByClassName(this.getAttribute("data-group"));
-			this.innerHTML = (this.innerHTML.indexOf("+") > -1) ? this.innerHTML.replace("+", "-") : this.innerHTML.replace("-", "+");
+	var lintResults = document.querySelectorAll('tr.lint-result'),
+		filters = document.querySelectorAll('input[name="filters"]');
+
+	// accordion
+	lintResults.forEach(function setUpAccordion(result) {
+		result.addEventListener('click', function() {
+			var inGroup = document.getElementsByClassName(this.getAttribute('data-group'));
+
+			this.innerHTML = (this.innerHTML.indexOf('+') > -1) ? this.innerHTML.replace('+', '-') : this.innerHTML.replace('-', '+');
 			for (var j = 0; j < inGroup.length; j++) {
-				inGroup[j].style.display = (inGroup[j].style.display !== "none") ? "none" : "table-row";
+				inGroup[j].style.display = (inGroup[j].style.display !== 'none') ? 'none' : 'table-row';
 			}
+		});
+	});
+
+	// filter
+	filters.forEach(function addChangeListener(filter) {
+		filter.addEventListener('change', filterResults);
+	});
+
+	function filterResults() {
+		var filterValue = document.querySelector('input[name="filters"]:checked').value;
+
+		lintResults.forEach(function filterByClass(result) {
+			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
 		});
 	}
 </script>
