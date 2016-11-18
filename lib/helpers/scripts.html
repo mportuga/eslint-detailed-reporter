@@ -4,14 +4,16 @@
 
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
-		result.addEventListener('click', function() {
-			var inGroup = document.getElementsByClassName(this.getAttribute('data-group'));
+		if (!result.className.includes('bg-success')) {
+			result.addEventListener('click', function() {
+				var inGroup = document.getElementsByClassName(this.getAttribute('data-group'));
 
-			this.innerHTML = (this.innerHTML.indexOf('+') > -1) ? this.innerHTML.replace('+', '-') : this.innerHTML.replace('-', '+');
-			for (var j = 0; j < inGroup.length; j++) {
-				inGroup[j].style.display = (inGroup[j].style.display !== 'none') ? 'none' : 'table-row';
-			}
-		});
+				this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
+				for (var j = 0; j < inGroup.length; j++) {
+					inGroup[j].style.display = (inGroup[j].style.display !== 'none') ? 'none' : 'table-row';
+				}
+			});
+		}
 	});
 
 	// filter
