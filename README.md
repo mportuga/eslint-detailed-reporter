@@ -13,7 +13,8 @@
 - Tables with top 5 warnings and errors in the linted files.
 - List of top 5 files with the most problems.
 - View of source code with issues for files with issues.
-- Links to the rule descriptions for all default eslint rules.
+- Links to the rule descriptions for all default eslint rules, as well as angular and lodash rules.
+- Ability to filter file list to just error or warning files.
 
 ## Example
 
@@ -109,6 +110,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
+- 0.5.9 Adding filtering and updating accordion styles.
 - 0.5.8 Fixing source code issue and adding another example file.
 - 0.5.7 Minor CSS updates.
 - 0.5.6 Added support for angular and lodash plugins(Fixing links to description of those rules).
