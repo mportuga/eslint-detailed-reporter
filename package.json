@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run command-line && npm run grunt-test",
-    "command-line": "eslint test/green_file.js -f lib/detailed.js -o example/success-report.html",
+    "command-line": "eslint fixture/green_file.js -f lib/detailed.js -o example/success-report.html",
     "grunt-test": "grunt force:eslint",
     "postversion": "git push && git push --tags && npm publish ./"
   },

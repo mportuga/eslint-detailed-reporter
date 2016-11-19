@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 				outputFile: 'example/example-report.html',
 				format: './lib/detailed.js'
 			},
-			target: ['test/**/*.js']
+			target: ['fixture/**/*.js']
 		}
 	});
 
