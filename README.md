@@ -16,6 +16,7 @@
 - Summary of issues per file
 - Links to the rule descriptions for all default eslint rules, as well as angular and lodash rules.
 - Ability to filter file list to just error or warning files.
+- Keyboard accessible.
 
 ## Example
 
@@ -111,6 +112,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
+- 0.6.1 Making the accordion open via keyboard.
 - 0.6.0 Updated styles and added a secondary view for the result details.
 - 0.5.9 Adding filtering and updating accordion styles.
 - 0.5.8 Fixing source code issue and adding another example file.
