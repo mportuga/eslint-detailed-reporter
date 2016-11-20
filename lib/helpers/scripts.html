@@ -45,10 +45,17 @@
 	});
 
 	function activateTab() {
-		var tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
+		var currentTabs = document.querySelectorAll(this.getAttribute('data-parent') + ' .nav-tabs > li'),
+			tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
 			tabContent = document.getElementById(this.getAttribute('data-content'));
 
+		currentTabs.forEach(disableTabs);
 		tabPanes.forEach(hideElement);
+		this.parentNode.className = 'active';
 		tabContent.style.display = (tabContent.style.display !== 'none') ? 'none' : 'block';
+	}
+
+	function disableTabs(tab) {
+		tab.className = '';
 	}
 </script>
