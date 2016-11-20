@@ -14,16 +14,20 @@
 
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
-		if (!result.className.includes('bg-success')) {
-			result.setAttribute('tabindex', 0);
-			result.addEventListener('click', toggleAccordion);
-			result.addEventListener('keydown', function(event) {
-				if (event.which === 13) {
-					toggleAccordion.apply(this);
-				}
-			});
-		}
+		result.addEventListener('click', handleResultClick);
+		result.addEventListener('keydown', function onKeydown(event) {
+			if (event.which === 13) {
+				handleResultClick.apply(this);
+			}
+		});
 	});
+
+	function handleResultClick() {
+		if (!this.className.includes('bg-success')) {
+			toggleAccordion.apply(this);
+		}
+		window.location.href = '#' + this.getAttribute('id');
+	}
 
 	function toggleAccordion() {
 		var resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));

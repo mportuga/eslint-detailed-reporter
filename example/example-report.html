@@ -441,7 +441,7 @@
 			</fieldset>
 			<table id="fileOverview">
 				<tbody>
-					<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureAngularRulesGreetUserComponentJs" class="lint-result bg-success" data-group="f-0" data-problem-count="0">
+					<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureAngularRulesGreetUserComponentJs" class="lint-result bg-success" data-group="f-0" data-problem-count="0" tabindex="0">
     <th>
         <span class="caret"></span>
     </th>
@@ -451,7 +451,7 @@
     </th>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureAngularRulesGreetUserDirectiveJs" class="lint-result bg-error" data-group="f-1" data-problem-count="5">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureAngularRulesGreetUserDirectiveJs" class="lint-result bg-error" data-group="f-1" data-problem-count="5" tabindex="0">
     <th>
         <span class="caret"></span>
     </th>
@@ -675,7 +675,7 @@
 		</div>
 	</td>
 </tr>
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureGreenFileJs" class="lint-result bg-success" data-group="f-2" data-problem-count="0">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureGreenFileJs" class="lint-result bg-success" data-group="f-2" data-problem-count="0" tabindex="0">
     <th>
         <span class="caret"></span>
     </th>
@@ -685,7 +685,7 @@
     </th>
 </tr>
 
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureOrangeFileJs" class="lint-result bg-error" data-group="f-3" data-problem-count="11">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureOrangeFileJs" class="lint-result bg-error" data-group="f-3" data-problem-count="11" tabindex="0">
     <th>
         <span class="caret"></span>
     </th>
@@ -981,7 +981,7 @@
 		</div>
 	</td>
 </tr>
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureRedFileJs" class="lint-result bg-error" data-group="f-4" data-problem-count="5">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureRedFileJs" class="lint-result bg-error" data-group="f-4" data-problem-count="5" tabindex="0">
     <th>
         <span class="caret"></span>
     </th>
@@ -1150,7 +1150,7 @@
 		</div>
 	</td>
 </tr>
-<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureYellowFileJs" class="lint-result bg-warning" data-group="f-5" data-problem-count="6">
+<tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureYellowFileJs" class="lint-result bg-warning" data-group="f-5" data-problem-count="6" tabindex="0">
     <th>
         <span class="caret"></span>
     </th>
@@ -1366,16 +1366,20 @@
 
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
-		if (!result.className.includes('bg-success')) {
-			result.setAttribute('tabindex', 0);
-			result.addEventListener('click', toggleAccordion);
-			result.addEventListener('keydown', function(event) {
-				if (event.which === 13) {
-					toggleAccordion.apply(this);
-				}
-			});
-		}
+		result.addEventListener('click', handleResultClick);
+		result.addEventListener('keydown', function onKeydown(event) {
+			if (event.which === 13) {
+				handleResultClick.apply(this);
+			}
+		});
 	});
+
+	function handleResultClick() {
+		if (!this.className.includes('bg-success')) {
+			toggleAccordion.apply(this);
+		}
+		window.location.href = '#' + this.getAttribute('id');
+	}
 
 	function toggleAccordion() {
 		var resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
