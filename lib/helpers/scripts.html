@@ -1,6 +1,16 @@
 <script type="text/javascript">
 	var lintResults = document.querySelectorAll('tr.lint-result'),
-		filters = document.querySelectorAll('input[name="filters"]');
+		filters = document.querySelectorAll('input[name="filters"]'),
+		tabs = document.querySelectorAll('.nav-tabs > li > button');
+
+	// helper functions
+	function hideElement(element) {
+		element.style.display = 'none';
+	}
+
+	function toggleDisplay(element) {
+		element.style.display = (element.style.display !== 'none') ? 'none' : 'block';
+	}
 
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
@@ -27,5 +37,18 @@
 		lintResults.forEach(function filterByClass(result) {
 			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
 		});
+	}
+
+	// tabs
+	tabs.forEach(function addClickListener(tab) {
+		tab.addEventListener('click', activateTab);
+	});
+
+	function activateTab() {
+		var tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
+			tabContent = document.getElementById(this.getAttribute('data-content'));
+
+		tabPanes.forEach(hideElement);
+		tabContent.style.display = (tabContent.style.display !== 'none') ? 'none' : 'block';
 	}
 </script>

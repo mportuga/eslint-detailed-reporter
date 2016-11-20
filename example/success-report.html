@@ -35,7 +35,7 @@
 
 	.page-header {
 		padding-bottom: 9px;
-		margin: 40px 0 20px;
+		margin: 20px 0 20px;
 		border-bottom: 1px solid #eee;
 	}
 
@@ -85,8 +85,15 @@
 		font-weight: 400;
 		font-size: normal;
 		text-align: left;
-		cursor: pointer;
 		border-bottom: 1px solid #ddd;
+	}
+
+	tr.lint-result {
+		cursor: pointer;
+	}
+
+	tr.lint-result.bg-success {
+		cursor: default;
 	}
 
 	th span {
@@ -205,6 +212,48 @@
 		content: '\02713';
 	}
 
+	/* Tabs */
+
+	.nav-tabs {
+		margin-bottom: 15px;
+		padding-left: 0;
+		list-style: none;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.nav-tabs > li {
+		position: relative;
+		display: inline-block;
+		margin-bottom: -1px;
+	}
+
+	.nav-tabs > li > button {
+		position: relative;
+		display: block;
+		padding: 10px 15px;
+		margin-right: 2px;
+		line-height: 1.5;
+		cursor: pointer;
+		color: #3a33d1;
+		background-color: transparent;
+		border: 1px solid transparent;
+	}
+
+	.nav-tabs > li > button:focus,
+	.nav-tabs > li > button:hover {
+		background-color: #e6e6e6;
+		border-color: #e6e6e6 #e6e6e6 #ddd;
+	}
+
+	.nav-tabs > li.active > button {
+		color: #555;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-bottom-color: transparent;
+		cursor: default;
+		text-decoration: none;
+	}
+
 	/* Code Styles */
 
 	table.source-code {
@@ -266,7 +315,7 @@
 		padding-bottom: 2px;
 	}
 
-	table.source-code tr.issue a {
+	.issue a {
 		float: right;
 	}
 
@@ -315,25 +364,6 @@
         <span>0 problems</span>
     </th>
 </tr>
-<tr style="display:none" class="f-0">
-	<td colspan="4">
-		<table class="source-code">
-			<thead>
-				<tr>
-					<th>Line</th>
-					<th>Source</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="hit bg-success">
-	<td class="line">1</td>
-	<td class="source"><code>No Issues</code></td>
-</tr>
-
-			</tbody>
-		</table>
-	</td>
-</tr>
 
 				</tbody>
 			</table>
@@ -341,7 +371,17 @@
 	</div>
 	<script type="text/javascript">
 	var lintResults = document.querySelectorAll('tr.lint-result'),
-		filters = document.querySelectorAll('input[name="filters"]');
+		filters = document.querySelectorAll('input[name="filters"]'),
+		tabs = document.querySelectorAll('.nav-tabs > li > button');
+
+	// helper functions
+	function hideElement(element) {
+		element.style.display = 'none';
+	}
+
+	function toggleDisplay(element) {
+		element.style.display = (element.style.display !== 'none') ? 'none' : 'block';
+	}
 
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
@@ -368,6 +408,19 @@
 		lintResults.forEach(function filterByClass(result) {
 			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
 		});
+	}
+
+	// tabs
+	tabs.forEach(function addClickListener(tab) {
+		tab.addEventListener('click', activateTab);
+	});
+
+	function activateTab() {
+		var tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
+			tabContent = document.getElementById(this.getAttribute('data-content'));
+
+		tabPanes.forEach(hideElement);
+		tabContent.style.display = (tabContent.style.display !== 'none') ? 'none' : 'block';
 	}
 </script>
 </body>

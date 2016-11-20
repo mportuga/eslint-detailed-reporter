@@ -35,7 +35,7 @@
 
 	.page-header {
 		padding-bottom: 9px;
-		margin: 40px 0 20px;
+		margin: 20px 0 20px;
 		border-bottom: 1px solid #eee;
 	}
 
@@ -212,6 +212,48 @@
 		content: '\02713';
 	}
 
+	/* Tabs */
+
+	.nav-tabs {
+		margin-bottom: 15px;
+		padding-left: 0;
+		list-style: none;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.nav-tabs > li {
+		position: relative;
+		display: inline-block;
+		margin-bottom: -1px;
+	}
+
+	.nav-tabs > li > button {
+		position: relative;
+		display: block;
+		padding: 10px 15px;
+		margin-right: 2px;
+		line-height: 1.5;
+		cursor: pointer;
+		color: #3a33d1;
+		background-color: transparent;
+		border: 1px solid transparent;
+	}
+
+	.nav-tabs > li > button:focus,
+	.nav-tabs > li > button:hover {
+		background-color: #e6e6e6;
+		border-color: #e6e6e6 #e6e6e6 #ddd;
+	}
+
+	.nav-tabs > li.active > button {
+		color: #555;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-bottom-color: transparent;
+		cursor: default;
+		text-decoration: none;
+	}
+
 	/* Code Styles */
 
 	table.source-code {
@@ -273,7 +315,7 @@
 		padding-bottom: 2px;
 	}
 
-	table.source-code tr.issue a {
+	.issue a {
 		float: right;
 	}
 
@@ -415,26 +457,47 @@
         <span>5 problems (5 errors, 0 warnings)</span>
     </th>
 </tr>
-<tr style="display:none" class="f-1">
-	<td colspan="4">
-		<table class="source-code">
-			<thead>
-				<tr>
-					<th>Line</th>
-					<th>Source</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="issue">
+<tr style="display:none;" class="f-1">
+	<td colspan="5">
+		<ul class="nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<button data-parent=".f-1"
+								data-content="sourceCode-1"
+								aria-controls="sourceCode-1"
+								role="tab">
+					SourceCode
+				</button>
+			</li>
+			<li role="presentation">
+				<button data-parent=".f-1"
+								data-content="detailSummary-1"
+								aria-controls="detailSummary-1"
+								role="tab">
+					Summary
+				</button>
+			</li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="sourceCode-1">
+				<table class="source-code">
+	<thead>
+		<tr>
+			<th>Line</th>
+			<th>Source</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 1: "Based on the Component-First Pattern, you should avoid the use of controllers"
+		Row 1, Column 1: "Based on the Component-First Pattern, you should avoid the use of controllers"
 		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/no-controller.md" target="_blank">angular/no-controller</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 1: "There may be at most 1 AngularJS component per file, but found 2"
+		Row 1, Column 1: "There may be at most 1 AngularJS component per file, but found 2"
 		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/component-limit.md" target="_blank">angular/component-limit</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -475,13 +538,13 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 13: "You should not set properties on $scope in controllers. Use controllerAs syntax and add data to "this""
+		Row 8, Column 13: "You should not set properties on $scope in controllers. Use controllerAs syntax and add data to "this""
 		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/controller-as.md" target="_blank">angular/controller-as</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 35: "Prefer '_.map' over the native function."
+		Row 8, Column 35: "Prefer '_.map' over the native function."
 		<a href="https://github.com/wix/eslint-plugin-lodash/blob/master/docs/rules/prefer-lodash-method.md" target="_blank">lodash/prefer-lodash-method</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -517,7 +580,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 9: "Directive should be implemented with the component method."
+		Row 14, Column 9: "Directive should be implemented with the component method."
 		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/prefer-component.md" target="_blank">angular/prefer-component</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -555,11 +618,60 @@
 	<td class="source"><code>    });</code></td>
 </tr>
 
-			</tbody>
-		</table>
+	</tbody>
+</table>
+
+			</div>
+			<div style="display:none;" role="tabpanel" class="tab-pane" id="detailSummary-1">
+				<div class="row"></div>
+<div class="row">
+	<h3 class="page-header">All Rules</h3>
+	<table class="summary-table">
+		<thead>
+			<tr>
+				<th>Severity</th>
+				<th>Rule</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 1, Column 1: "Based on the Component-First Pattern, you should avoid the use of controllers"
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/no-controller.md" target="_blank">angular/no-controller</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 1, Column 1: "There may be at most 1 AngularJS component per file, but found 2"
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/component-limit.md" target="_blank">angular/component-limit</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 8, Column 13: "You should not set properties on $scope in controllers. Use controllerAs syntax and add data to "this""
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/controller-as.md" target="_blank">angular/controller-as</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 8, Column 35: "Prefer '_.map' over the native function."
+		<a href="https://github.com/wix/eslint-plugin-lodash/blob/master/docs/rules/prefer-lodash-method.md" target="_blank">lodash/prefer-lodash-method</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 14, Column 9: "Directive should be implemented with the component method."
+		<a href="https://github.com/Gillespie59/eslint-plugin-angular/blob/master/docs/prefer-component.md" target="_blank">angular/prefer-component</a>
 	</td>
 </tr>
-
+		</tbody>
+	</table>
+</div>
+			</div>
+		</div>
+	</td>
+</tr>
 <tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureGreenFileJs" class="lint-result bg-success" data-group="f-2" data-problem-count="0">
     <th>
         <span class="caret"></span>
@@ -579,17 +691,38 @@
         <span>11 problems (5 errors, 6 warnings)</span>
     </th>
 </tr>
-<tr style="display:none" class="f-3">
-	<td colspan="4">
-		<table class="source-code">
-			<thead>
-				<tr>
-					<th>Line</th>
-					<th>Source</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="hit bg-success">
+<tr style="display:none;" class="f-3">
+	<td colspan="5">
+		<ul class="nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<button data-parent=".f-3"
+								data-content="sourceCode-3"
+								aria-controls="sourceCode-3"
+								role="tab">
+					SourceCode
+				</button>
+			</li>
+			<li role="presentation">
+				<button data-parent=".f-3"
+								data-content="detailSummary-3"
+								aria-controls="detailSummary-3"
+								role="tab">
+					Summary
+				</button>
+			</li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="sourceCode-3">
+				<table class="source-code">
+	<thead>
+		<tr>
+			<th>Line</th>
+			<th>Source</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="hit bg-success">
 	<td class="line">1</td>
 	<td class="source"><code>'use strict';</code></td>
 </tr>
@@ -602,7 +735,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 10: "'addOne' is defined but never used."
+		Row 3, Column 10: "'addOne' is defined but never used."
 		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -613,13 +746,13 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 3: "Expected indentation of 4 spaces but found 2."
+		Row 4, Column 3: "Expected indentation of 4 spaces but found 2."
 		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 7: "Use the isNaN function to compare with NaN."
+		Row 4, Column 7: "Use the isNaN function to compare with NaN."
 		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -630,19 +763,19 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 5: "Expected indentation of 6 spaces but found 4."
+		Row 5, Column 5: "Expected indentation of 6 spaces but found 4."
 		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 12: "Unexpected space before unary operator '++'."
+		Row 5, Column 12: "Unexpected space before unary operator '++'."
 		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 16: "Missing semicolon."
+		Row 5, Column 16: "Missing semicolon."
 		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -653,7 +786,7 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 10: "Unnecessary 'else' after 'return'."
+		Row 6, Column 10: "Unnecessary 'else' after 'return'."
 		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -664,19 +797,19 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 5: "Expected indentation of 6 spaces but found 4."
+		Row 7, Column 5: "Expected indentation of 6 spaces but found 4."
 		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 5: "Expected a return value."
+		Row 7, Column 5: "Expected a return value."
 		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 11: "Missing semicolon."
+		Row 7, Column 11: "Missing semicolon."
 		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -692,7 +825,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 2: "Unnecessary semicolon."
+		Row 9, Column 2: "Unnecessary semicolon."
 		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -705,11 +838,146 @@
 	<td class="source"><code></code></td>
 </tr>
 
-			</tbody>
-		</table>
+	</tbody>
+</table>
+
+			</div>
+			<div style="display:none;" role="tabpanel" class="tab-pane" id="detailSummary-3">
+				<div class="row"><div class="column">
+	<h3 class="text-error">Top errors</h3>
+	<table class="summary-table"><thead>
+		<tr>
+			<th>rule</th>
+			<th>count</th>
+		</tr>
+	</thead><tbody>
+		<tr>
+	<td><a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a></td>
+	<td>1</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a></td>
+	<td>1</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a></td>
+	<td>1</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a></td>
+	<td>1</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a></td>
+	<td>1</td>
+</tr>
+	</tbody></table>
+</div><div class="column">
+	<h3 class="text-warning">Top warnings</h3>
+	<table class="summary-table"><thead>
+		<tr>
+			<th>rule</th>
+			<th>count</th>
+		</tr>
+	</thead><tbody>
+		<tr>
+	<td><a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a></td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a></td>
+	<td>2</td>
+</tr>
+<tr>
+	<td><a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a></td>
+	<td>1</td>
+</tr>
+	</tbody></table>
+</div></div>
+<div class="row">
+	<h3 class="page-header">All Rules</h3>
+	<table class="summary-table">
+		<thead>
+			<tr>
+				<th>Severity</th>
+				<th>Rule</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 3, Column 10: "'addOne' is defined but never used."
+		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 4, Column 3: "Expected indentation of 4 spaces but found 2."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 4, Column 7: "Use the isNaN function to compare with NaN."
+		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 5, Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 5, Column 12: "Unexpected space before unary operator '++'."
+		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 5, Column 16: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 6, Column 10: "Unnecessary 'else' after 'return'."
+		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 7, Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 7, Column 5: "Expected a return value."
+		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 7, Column 11: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 9, Column 2: "Unnecessary semicolon."
+		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
 	</td>
 </tr>
-
+		</tbody>
+	</table>
+</div>
+			</div>
+		</div>
+	</td>
+</tr>
 <tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureRedFileJs" class="lint-result bg-error" data-group="f-4" data-problem-count="5">
     <th>
         <span class="caret"></span>
@@ -719,17 +987,38 @@
         <span>5 problems (5 errors, 0 warnings)</span>
     </th>
 </tr>
-<tr style="display:none" class="f-4">
-	<td colspan="4">
-		<table class="source-code">
-			<thead>
-				<tr>
-					<th>Line</th>
-					<th>Source</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="hit bg-success">
+<tr style="display:none;" class="f-4">
+	<td colspan="5">
+		<ul class="nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<button data-parent=".f-4"
+								data-content="sourceCode-4"
+								aria-controls="sourceCode-4"
+								role="tab">
+					SourceCode
+				</button>
+			</li>
+			<li role="presentation">
+				<button data-parent=".f-4"
+								data-content="detailSummary-4"
+								aria-controls="detailSummary-4"
+								role="tab">
+					Summary
+				</button>
+			</li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="sourceCode-4">
+				<table class="source-code">
+	<thead>
+		<tr>
+			<th>Line</th>
+			<th>Source</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="hit bg-success">
 	<td class="line">1</td>
 	<td class="source"><code>'use strict';</code></td>
 </tr>
@@ -742,7 +1031,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 10: "'addOne' is defined but never used."
+		Row 3, Column 10: "'addOne' is defined but never used."
 		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -753,7 +1042,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 9: "Use the isNaN function to compare with NaN."
+		Row 4, Column 9: "Use the isNaN function to compare with NaN."
 		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -764,7 +1053,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 16: "Unexpected space before unary operator '++'."
+		Row 5, Column 16: "Unexpected space before unary operator '++'."
 		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -780,7 +1069,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 5: "Expected a return value."
+		Row 7, Column 5: "Expected a return value."
 		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -791,7 +1080,7 @@
 <tr class="issue">
 	<td><strong class="text-error">Error<strong></td>
 	<td>
-		Column 2: "Unnecessary semicolon."
+		Row 8, Column 2: "Unnecessary semicolon."
 		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
 	</td>
 </tr><tr class="hit bg-error">
@@ -804,11 +1093,60 @@
 	<td class="source"><code></code></td>
 </tr>
 
-			</tbody>
-		</table>
+	</tbody>
+</table>
+
+			</div>
+			<div style="display:none;" role="tabpanel" class="tab-pane" id="detailSummary-4">
+				<div class="row"></div>
+<div class="row">
+	<h3 class="page-header">All Rules</h3>
+	<table class="summary-table">
+		<thead>
+			<tr>
+				<th>Severity</th>
+				<th>Rule</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 3, Column 10: "'addOne' is defined but never used."
+		<a href="http://eslint.org/docs/rules/no-unused-vars" target="_blank">no-unused-vars</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 4, Column 9: "Use the isNaN function to compare with NaN."
+		<a href="http://eslint.org/docs/rules/use-isnan" target="_blank">use-isnan</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 5, Column 16: "Unexpected space before unary operator '++'."
+		<a href="http://eslint.org/docs/rules/space-unary-ops" target="_blank">space-unary-ops</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 7, Column 5: "Expected a return value."
+		<a href="http://eslint.org/docs/rules/consistent-return" target="_blank">consistent-return</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-error">Error<strong></td>
+	<td>
+		Row 8, Column 2: "Unnecessary semicolon."
+		<a href="http://eslint.org/docs/rules/no-extra-semi" target="_blank">no-extra-semi</a>
 	</td>
 </tr>
-
+		</tbody>
+	</table>
+</div>
+			</div>
+		</div>
+	</td>
+</tr>
 <tr id="usersMarceloPortugalWebstormProjectsEslintDetailedReporterFixtureYellowFileJs" class="lint-result bg-warning" data-group="f-5" data-problem-count="6">
     <th>
         <span class="caret"></span>
@@ -818,17 +1156,38 @@
         <span>6 problems (0 errors, 6 warnings)</span>
     </th>
 </tr>
-<tr style="display:none" class="f-5">
-	<td colspan="4">
-		<table class="source-code">
-			<thead>
-				<tr>
-					<th>Line</th>
-					<th>Source</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="hit bg-success">
+<tr style="display:none;" class="f-5">
+	<td colspan="5">
+		<ul class="nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<button data-parent=".f-5"
+								data-content="sourceCode-5"
+								aria-controls="sourceCode-5"
+								role="tab">
+					SourceCode
+				</button>
+			</li>
+			<li role="presentation">
+				<button data-parent=".f-5"
+								data-content="detailSummary-5"
+								aria-controls="detailSummary-5"
+								role="tab">
+					Summary
+				</button>
+			</li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="sourceCode-5">
+				<table class="source-code">
+	<thead>
+		<tr>
+			<th>Line</th>
+			<th>Source</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="hit bg-success">
 	<td class="line">1</td>
 	<td class="source"><code>'use strict';</code></td>
 </tr>
@@ -846,7 +1205,7 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 3: "Expected indentation of 4 spaces but found 2."
+		Row 4, Column 3: "Expected indentation of 4 spaces but found 2."
 		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -857,13 +1216,13 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 5: "Expected indentation of 6 spaces but found 4."
+		Row 5, Column 5: "Expected indentation of 6 spaces but found 4."
 		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 15: "Missing semicolon."
+		Row 5, Column 15: "Missing semicolon."
 		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -874,7 +1233,7 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 10: "Unnecessary 'else' after 'return'."
+		Row 6, Column 10: "Unnecessary 'else' after 'return'."
 		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -885,13 +1244,13 @@
 <tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 5: "Expected indentation of 6 spaces but found 4."
+		Row 7, Column 5: "Expected indentation of 6 spaces but found 4."
 		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
 	</td>
 </tr><tr class="issue">
 	<td><strong class="text-warning">Warning<strong></td>
 	<td>
-		Column 15: "Missing semicolon."
+		Row 7, Column 15: "Missing semicolon."
 		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
 	</td>
 </tr><tr class="hit bg-warning">
@@ -924,18 +1283,83 @@
 	<td class="source"><code></code></td>
 </tr>
 
-			</tbody>
-		</table>
+	</tbody>
+</table>
+
+			</div>
+			<div style="display:none;" role="tabpanel" class="tab-pane" id="detailSummary-5">
+				<div class="row"></div>
+<div class="row">
+	<h3 class="page-header">All Rules</h3>
+	<table class="summary-table">
+		<thead>
+			<tr>
+				<th>Severity</th>
+				<th>Rule</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 4, Column 3: "Expected indentation of 4 spaces but found 2."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 5, Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 5, Column 15: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 6, Column 10: "Unnecessary 'else' after 'return'."
+		<a href="http://eslint.org/docs/rules/no-else-return" target="_blank">no-else-return</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 7, Column 5: "Expected indentation of 6 spaces but found 4."
+		<a href="http://eslint.org/docs/rules/indent" target="_blank">indent</a>
+	</td>
+</tr><tr class="issue">
+	<td><strong class="text-warning">Warning<strong></td>
+	<td>
+		Row 7, Column 15: "Missing semicolon."
+		<a href="http://eslint.org/docs/rules/semi" target="_blank">semi</a>
 	</td>
 </tr>
-
+		</tbody>
+	</table>
+</div>
+			</div>
+		</div>
+	</td>
+</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 	<script type="text/javascript">
 	var lintResults = document.querySelectorAll('tr.lint-result'),
-		filters = document.querySelectorAll('input[name="filters"]');
+		filters = document.querySelectorAll('input[name="filters"]'),
+		tabs = document.querySelectorAll('.nav-tabs > li > button');
+
+	// helper functions
+	function hideElement(element) {
+		element.style.display = 'none';
+	}
+
+	function toggleDisplay(element) {
+		element.style.display = (element.style.display !== 'none') ? 'none' : 'block';
+	}
 
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
@@ -962,6 +1386,19 @@
 		lintResults.forEach(function filterByClass(result) {
 			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
 		});
+	}
+
+	// tabs
+	tabs.forEach(function addClickListener(tab) {
+		tab.addEventListener('click', activateTab);
+	});
+
+	function activateTab() {
+		var tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
+			tabContent = document.getElementById(this.getAttribute('data-content'));
+
+		tabPanes.forEach(hideElement);
+		tabContent.style.display = (tabContent.style.display !== 'none') ? 'none' : 'block';
 	}
 </script>
 </body>
