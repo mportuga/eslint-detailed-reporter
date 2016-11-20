@@ -15,16 +15,22 @@
 	// accordion
 	lintResults.forEach(function setUpAccordion(result) {
 		if (!result.className.includes('bg-success')) {
-			result.addEventListener('click', function() {
-				var inGroup = document.getElementsByClassName(this.getAttribute('data-group'));
-
-				this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
-				for (var j = 0; j < inGroup.length; j++) {
-					inGroup[j].style.display = (inGroup[j].style.display !== 'none') ? 'none' : 'table-row';
+			result.setAttribute('tabindex', 0);
+			result.addEventListener('click', toggleAccordion);
+			result.addEventListener('keydown', function(event) {
+				if (event.which === 13) {
+					toggleAccordion.apply(this);
 				}
 			});
 		}
 	});
+
+	function toggleAccordion() {
+		var resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
+
+		this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
+		resultDetails[0].style.display = resultDetails[0].style.display !== 'none' ? 'none' : 'table-row';
+	}
 
 	// filter
 	filters.forEach(function addChangeListener(filter) {
@@ -52,7 +58,7 @@
 		currentTabs.forEach(disableTabs);
 		tabPanes.forEach(hideElement);
 		this.parentNode.className = 'active';
-		tabContent.style.display = (tabContent.style.display !== 'none') ? 'none' : 'block';
+		toggleDisplay(tabContent);
 	}
 
 	function disableTabs(tab) {
