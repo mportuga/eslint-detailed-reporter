@@ -387,19 +387,22 @@
 	}
 
 	// accordion
-	lintResults.forEach(function setUpAccordion(result) {
+	for(var i = 0; i < lintResults.length; i++) {
+		var result = lintResults[i];
+
 		result.addEventListener('click', handleResultClick);
 		result.addEventListener('keydown', function onKeydown(event) {
 			if (event.which === 13) {
 				handleResultClick.apply(this);
 			}
 		});
-	});
+	}
 
 	function handleResultClick() {
 		if (!this.className.includes('bg-success')) {
 			toggleAccordion.apply(this);
 		}
+		// TODO: Comment this back in when I can support it in example page
 //		window.location.href = '#' + this.getAttribute('id');
 	}
 
@@ -411,30 +414,37 @@
 	}
 
 	// filter
-	filters.forEach(function addChangeListener(filter) {
-		filter.addEventListener('change', filterResults);
-	});
+	for(var j = 0; j < filters.length; j++) {
+		filters[j].addEventListener('change', filterResults);
+	}
 
 	function filterResults() {
 		var filterValue = document.querySelector('input[name="filters"]:checked').value;
 
-		lintResults.forEach(function filterByClass(result) {
+
+		for(var i = 0; i < lintResults.length; i++) {
+			var result = lintResults[i];
+
 			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
-		});
+		}
 	}
 
 	// tabs
-	tabs.forEach(function addClickListener(tab) {
-		tab.addEventListener('click', activateTab);
-	});
+	for(var k = 0; k < lintResults.length; k++) {
+		tabs[k].addEventListener('click', activateTab);
+	}
 
 	function activateTab() {
 		var currentTabs = document.querySelectorAll(this.getAttribute('data-parent') + ' .nav-tabs > li'),
 			tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
 			tabContent = document.getElementById(this.getAttribute('data-content'));
 
-		currentTabs.forEach(disableTabs);
-		tabPanes.forEach(hideElement);
+		for(var i = 0; i < currentTabs.length; i++) {
+			disableTabs(currentTabs[i]);
+		}
+		for(var j = 0; j < tabPanes.length; j++) {
+			hideElement(tabPanes[j]);
+		}
 		this.parentNode.className = 'active';
 		toggleDisplay(tabContent);
 	}
