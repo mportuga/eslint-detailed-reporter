@@ -1,3 +1,13 @@
+<a name="0.6.8"></a>
+## [0.6.8](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.7...v0.6.8) (2016-11-23)
+
+
+### Bug Fixes
+
+* **filter:** Closing accordions that are being hidden. ([b4227c0](https://github.com/mportuga/eslint-detailed-reporter/commit/b4227c0))
+
+
+
 <a name="0.6.7"></a>
 ## [0.6.7](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.6...v0.6.7) (2016-11-23)
 
