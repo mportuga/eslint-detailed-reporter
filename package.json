@@ -7,6 +7,7 @@
     "test": "npm run command-line && npm run grunt-test",
     "command-line": "eslint fixture/green_file.js -f lib/detailed.js -o example/success-report.html",
     "grunt-test": "grunt force:eslint",
+    "preversion": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git commit -am \"chore(CHANGELOG): Updating Changelog\"",
     "postversion": "git push && git push --tags && npm publish ./"
   },
   "repository": {
