@@ -426,6 +426,10 @@
 			var result = lintResults[i];
 
 			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
+
+			if (result.style.display === 'none' && result.className.includes('open')) {
+				toggleAccordion.apply(result);
+			}
 		}
 	}
 
