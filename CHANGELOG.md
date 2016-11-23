@@ -1,3 +1,18 @@
+<a name="0.6.7"></a>
+## [0.6.7](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.6...v0.6.7) (2016-11-23)
+
+
+### Bug Fixes
+
+* **package.json:** Updating postversion task. ([d761f4e](https://github.com/mportuga/eslint-detailed-reporter/commit/d761f4e))
+
+
+
+<a name="0.6.6"></a>
+## [0.6.6](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.5...v0.6.6) (2016-11-23)
+
+
+
 <a name="0.6.5"></a>
 ## [0.6.5](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.4...v0.6.5) (2016-11-23)
 
