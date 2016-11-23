@@ -22,7 +22,7 @@
 
 [Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/example-report.html) to view an example report.
 
-You can also [click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/success-report
+[Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/success-report
 .html) to view an example success report.
 
 ## Installation
@@ -112,16 +112,7 @@ After that, just open a [pull request](https://github.com/mportuga/eslint-detail
 
 ## Release History
 
-- 0.6.1 Making the accordion open via keyboard.
-- 0.6.0 Updated styles and added a secondary view for the result details.
-- 0.5.9 Adding filtering and updating accordion styles.
-- 0.5.8 Fixing source code issue and adding another example file.
-- 0.5.7 Minor CSS updates.
-- 0.5.6 Added support for angular and lodash plugins(Fixing links to description of those rules).
-- 0.5.5 Added list of top 5 files with the most problems.
-- 0.5.4 Made it so that Top Errors and Top Warnings table only show up when needed.
-- 0.5.3 Fixing issue with npm package that caused report not to run.
-- 0.5.1 Initial release.
+See [CHANGELOG](https://github.com/mportuga/eslint-detailed-reporter/blob/master/CHANGELOG.md)
 
 ## License
 
