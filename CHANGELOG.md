@@ -1,3 +1,14 @@
+<a name="0.6.9"></a>
+## [0.6.9](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.8...v0.6.9) (2016-11-29)
+
+
+### Bug Fixes
+
+* **details tab buttons:** Ensuring all tabs works as expected ([b6b5237](https://github.com/mportuga/eslint-detailed-reporter/commit/b6b5237))
+* **HTML in JS:** Fixes rendering issues with HTML in JS files. ([712e1c1](https://github.com/mportuga/eslint-detailed-reporter/commit/712e1c1))
+
+
+
 <a name="0.6.8"></a>
 ## [0.6.8](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.7...v0.6.8) (2016-11-23)
 
