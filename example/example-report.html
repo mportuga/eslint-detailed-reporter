@@ -467,6 +467,7 @@
 				<button data-parent=".f-1"
 								data-content="sourceCode-1"
 								aria-controls="sourceCode-1"
+								type="button"
 								role="tab">
 					SourceCode
 				</button>
@@ -475,6 +476,7 @@
 				<button data-parent=".f-1"
 								data-content="detailSummary-1"
 								aria-controls="detailSummary-1"
+								type="button"
 								role="tab">
 					Summary
 				</button>
@@ -603,7 +605,7 @@
 
 <tr class="hit bg-success">
 	<td class="line">17</td>
-	<td class="source"><code>            template: 'Hello, {{user}}!',</code></td>
+	<td class="source"><code>            template: '&#60;h1&#62;Hello, {{user}}!&#60;/h1&#62;',</code></td>
 </tr>
 
 <tr class="hit bg-success">
@@ -701,6 +703,7 @@
 				<button data-parent=".f-3"
 								data-content="sourceCode-3"
 								aria-controls="sourceCode-3"
+								type="button"
 								role="tab">
 					SourceCode
 				</button>
@@ -709,6 +712,7 @@
 				<button data-parent=".f-3"
 								data-content="detailSummary-3"
 								aria-controls="detailSummary-3"
+								type="button"
 								role="tab">
 					Summary
 				</button>
@@ -997,6 +1001,7 @@
 				<button data-parent=".f-4"
 								data-content="sourceCode-4"
 								aria-controls="sourceCode-4"
+								type="button"
 								role="tab">
 					SourceCode
 				</button>
@@ -1005,6 +1010,7 @@
 				<button data-parent=".f-4"
 								data-content="detailSummary-4"
 								aria-controls="detailSummary-4"
+								type="button"
 								role="tab">
 					Summary
 				</button>
@@ -1166,6 +1172,7 @@
 				<button data-parent=".f-5"
 								data-content="sourceCode-5"
 								aria-controls="sourceCode-5"
+								type="button"
 								role="tab">
 					SourceCode
 				</button>
@@ -1174,6 +1181,7 @@
 				<button data-parent=".f-5"
 								data-content="detailSummary-5"
 								aria-controls="detailSummary-5"
+								type="button"
 								role="tab">
 					Summary
 				</button>
@@ -1412,7 +1420,7 @@
 	}
 
 	// tabs
-	for(var k = 0; k < lintResults.length; k++) {
+	for(var k = 0; k < tabs.length; k++) {
 		tabs[k].addEventListener('click', activateTab);
 	}
 

@@ -1,6 +1,6 @@
 angular.module('myApp').
     component('greetUser', {
-        template: 'Hello, {{$ctrl.user}}!',
+        template: '<strong>Hello, {{$ctrl.user}}!</strong>',
         controller: function GreetUserController() {
             this.user = 'world';
         }

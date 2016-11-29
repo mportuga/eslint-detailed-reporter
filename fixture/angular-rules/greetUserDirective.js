@@ -14,7 +14,7 @@ angular.module('myApp')
         return {
             restrict: 'E',
             replace: true,
-            template: 'Hello, {{user}}!',
+            template: '<h1>Hello, {{user}}!</h1>',
             controller: 'GreetUserController'
         };
     });
