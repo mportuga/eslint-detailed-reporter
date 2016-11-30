@@ -22,8 +22,7 @@
 
 [Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/example-report.html) to view an example report.
 
-[Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/success-report
-.html) to view an example success report.
+[Click here](http://htmlpreview.github.io/?https://github.com/mportuga/eslint-detailed-reporter/blob/master/example/success-report.html) to view an example success report.
 
 ## Installation
 
