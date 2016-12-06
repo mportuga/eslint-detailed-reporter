@@ -1,3 +1,8 @@
+<a name="0.6.10"></a>
+## [0.6.10](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.9...v0.6.10) (2016-12-06)
+
+
+
 <a name="0.6.9"></a>
 ## [0.6.9](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.8...v0.6.9) (2016-11-29)
 
