@@ -18,6 +18,7 @@
 - Links to the rule descriptions for all default eslint rules, as well as angular and lodash rules.
 - Ability to filter file list to just error or warning files.
 - Keyboard accessible.
+- Can return either multiple files or a single file as the result. (This feature is in BETA).
 
 ## Example
 
@@ -41,6 +42,9 @@ eslint file.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o repor
 
 # Recurse current directory
 eslint . -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
+
+# Recurse current directory with multiple files as the result
+eslint . -f node_modules/eslint-detailed-reporter/lib/detailed-simple.js -o report.html
 ```
 
 ### With [Grunt ESLint](https://www.npmjs.com/package/grunt-eslint):
@@ -64,6 +68,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['eslint']);
 };
 ```
+
+* If you want to use the new multi file feature, you must use the full path to the detailed-multi file in the format section and
+add --outputDirectory=<your directory here> to the command line.
 
 ### With [Gulp ESLint](https://github.com/adametry/gulp-eslint):
 
