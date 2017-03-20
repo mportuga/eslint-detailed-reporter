@@ -1,3 +1,14 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.10...v0.7.0) (2017-03-20)
+
+
+### Features
+
+* **detailed.js:** Reporter now returns multiple files as the output. ([313a333](https://github.com/mportuga/eslint-detailed-reporter/commit/313a333))
+* **summary:** Improving reporter appearance when no CSS is available. ([323bf6d](https://github.com/mportuga/eslint-detailed-reporter/commit/323bf6d))
+
+
+
 <a name="0.6.10"></a>
 ## [0.6.10](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.6.9...v0.6.10) (2016-12-06)
 
