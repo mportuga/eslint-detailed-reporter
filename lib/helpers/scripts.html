@@ -5,11 +5,13 @@
 
 	// helper functions
 	function hideElement(element) {
-		element.style.display = 'none';
+		if (!element.className.includes('hidden')) {
+			element.className = element.className + ' hidden';
+		}
 	}
 
 	function toggleDisplay(element) {
-		element.style.display = (element.style.display !== 'none') ? 'none' : 'block';
+		element.className = element.className.includes('hidden') ? element.className.replace(' hidden', '') : element.className + ' hidden';
 	}
 
 	// accordion
@@ -36,7 +38,7 @@
 		var resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
 
 		this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
-		resultDetails[0].style.display = resultDetails[0].style.display !== 'none' ? 'none' : 'table-row';
+		toggleDisplay(resultDetails[0]);
 	}
 
 	// filter
@@ -51,9 +53,13 @@
 		for(var i = 0; i < lintResults.length; i++) {
 			var result = lintResults[i];
 
-			result.style.display = result.className.includes(filterValue) ? 'table-row' : 'none';
+			if (result.className.includes(filterValue)) {
+				result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
+			} else {
+				hideElement(result);
+			}
 
-			if (result.style.display === 'none' && result.className.includes('open')) {
+			if (result.className.includes('hidden') && result.className.includes('open')) {
 				toggleAccordion.apply(result);
 			}
 		}
