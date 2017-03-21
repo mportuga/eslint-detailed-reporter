@@ -44,7 +44,7 @@ eslint file.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o repor
 eslint . -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
 
 # Recurse current directory with multiple files as the result
-eslint . -f node_modules/eslint-detailed-reporter/lib/detailed-simple.js -o report.html
+eslint . -f node_modules/eslint-detailed-reporter/lib/detailed-multi.js -o report.html
 ```
 
 ### With [Grunt ESLint](https://www.npmjs.com/package/grunt-eslint):
