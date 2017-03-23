@@ -14,4 +14,4 @@ before_script:
 
 script:
   - npm test
-  - npm run protractor-ci
+#  - npm run protractor-ci
