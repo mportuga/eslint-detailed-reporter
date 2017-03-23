@@ -1,0 +1,8 @@
+.idea
+.travis.yml
+.gitignore
+example
+fixture
+node_modules
+test
+gruntfile.js
