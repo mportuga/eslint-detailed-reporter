@@ -5,7 +5,7 @@
 [![Downloads/month](https://img.shields.io/npm/dm/eslint-detailed-reporter.svg)](https://www.npmjs.com/package/eslint-detailed-reporter)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mportuga/eslint-detailed-reporter/blob/master/LICENSE)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eslint-detailed-reporter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![GitHub issues](https://img.shields.io/github/issues/mportuga/eslint-detailed-reporter.svg?style=plastic)](https://github.com/mportuga/eslint-detailed-reporter/issues)
+[![GitHub issues](https://img.shields.io/github/issues/mportuga/eslint-detailed-reporter.svg?style=flat)](https://github.com/mportuga/eslint-detailed-reporter/issues)
 
 > A Detailed HTML reporter for ESLINT based on the code written by Julian Laval for [eslint's default HTML reporter](http://eslint.org/docs/user-guide/formatters/#html) and inspired by Sven Piller's [eslint-formatter-markdown](https://github.com/sven-piller/eslint-formatter-markdown) and [mochajs](https://mochajs.org/)'s HTML coverage report.
 
