@@ -4,13 +4,15 @@
   "description": "Detailed HTML reporter for ESLINT.",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/pm2/bin/pm2 start test/e2e/e2e-server.js",
+    "stop": "./node_modules/pm2/bin/pm2 delete all",
     "test": "npm run command-line && npm run grunt-test",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git commit -am \"chore(CHANGELOG): Updating Changelog\"",
     "command-line": "eslint fixture/green_file.js -f lib/detailed.js -o example/success-report.html",
     "grunt-test": "grunt force:eslint",
-    "protractor-start": "node test/e2e/e2e-server.js & node_modules/protractor/bin/webdriver-manager start",
-    "protractor-run": "grunt protractor:local",
-    "protractor-end": "killall node test/e2e/e2e-server.js",
+    "protractor-start": "node_modules/protractor/bin/webdriver-manager start",
+    "protractor": "npm start && grunt protractor:local && npm stop",
+    "protractor-ci": "npm start && grunt protractor:ci && npm stop",
     "postversion": "npm run changelog && git push && git push --tags && npm publish ./"
   },
   "repository": {
@@ -48,6 +50,7 @@
     "grunt-force-task": "^2.0.0",
     "grunt-protractor-runner": "^5.0.0",
     "load-grunt-tasks": "^3.5.2",
+    "pm2": "^2.4.2",
     "protractor": "^5.1.1"
   }
 }

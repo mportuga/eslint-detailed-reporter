@@ -3,5 +3,15 @@ language: node_js
 node_js:
   - 6
 
+addons:
+  sauce_connect:
+    username: eslint-detailed-reporter
+  jwt:
+    secure: NGUreMddV7ynvSbxQBJqeldKd23vmw5C3Y9oxEBjJdvc1n3l22wFeMOHPIFvZuBUPnbjTii2veRDDknJSXI5Trlv/lMQQ8dTr7FwUmhDcraP+S8lpZ3PVo6FC+D+/0k7pPKGl0MHyVPqgS2iEruTOOUQBHGPMHKcZXS7kNFjId8FvhY7G18yTIg6ReGMJ3zFBaiyIfgMcFdLQnlP4bSRGfBLK6+jc+A05vZiLo5J0F1fKxc5g5PIcMsntJqhibay75v2CYB33UH3ybX2HH4ilfcozM4fOLrcNRP0+VxnwpcEl3ZsYUsmJgdqwWiJ7BZdp7bGBgHf2TJ4UOMOw1ez3HlmyIRICHgAZchp4Szs/cl+UlE26gmJhpdn5y0vNOpFYpfQ6PnugWvYM/7RYFSdtlrC+Nv3xgEmjJAPN9UNrOixPhOgb/OMnjJbbrfODN5KMHo8POa4pdnrTeH+tJOSDt8FIBoKstYstUD/UTknoyAYRderikNPEsJYXpmbN36bNfIZjfyfikdC4mv3ZAU97um7OH6E5I+fmauZrfUcov3X6oSF9Tby2GUhsD71DEmTHVg+8FJF5DoYhHr7y6oZpoWcfO3TVeDPN1n8gCgKdrpIOi/+inDGuHDjewIpqcKE9V54CqPy9MDcTgjYMlF/uodzxxRJVz95qbRKz9nzVD8=
+
 before_script:
   - npm install -g grunt-cli
+
+script:
+  - npm test
+  - npm run protractor-ci

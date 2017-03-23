@@ -23,6 +23,11 @@ module.exports = function(grunt) {
 			local: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
 				options: {}
 			},
+			ci: {
+				options: {
+					configFile: 'test/e2e.ci.conf.js'
+				}
+			}
 		}
 	});
 
