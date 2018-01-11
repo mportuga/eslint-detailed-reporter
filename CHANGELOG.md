@@ -1,3 +1,13 @@
+<a name="0.7.3"></a>
+## [0.7.3](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.7.2...v0.7.3) (2018-01-11)
+
+
+### Bug Fixes
+
+* **eslint 4.x:** Updating peer dependency list. ([2b71e9f](https://github.com/mportuga/eslint-detailed-reporter/commit/2b71e9f))
+
+
+
 <a name="0.7.2"></a>
 ## [0.7.2](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.7.1...v0.7.2) (2017-03-21)
 
