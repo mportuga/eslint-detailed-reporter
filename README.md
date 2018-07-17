@@ -126,4 +126,4 @@ See [CHANGELOG](./CHANGELOG.md)
 
 ## License
 
-[MIT](./LICENSE) © Marcelo S. Portugal
+[MIT](https://github.com/mportuga/eslint-detailed-reporter/blob/master/LICENSE) © Marcelo S. Portugal
