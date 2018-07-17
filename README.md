@@ -118,10 +118,12 @@ npm test
 
 After that, just open a [pull request](https://github.com/mportuga/eslint-detailed-reporter/pulls) and I will review it when I can!
 
+For more detailed contributing instructions checkout out our [contributing documentation](./.github/CONTRIBUTING.md)!
+
 ## Release History
 
-See [CHANGELOG](https://github.com/mportuga/eslint-detailed-reporter/blob/master/CHANGELOG.md)
+See [CHANGELOG](./CHANGELOG.md)
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © Marcelo S. Portugal
+[MIT](./LICENSE) © Marcelo S. Portugal
