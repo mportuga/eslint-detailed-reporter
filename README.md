@@ -6,6 +6,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mportuga/eslint-detailed-reporter/blob/master/LICENSE)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/eslint-detailed-reporter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![GitHub issues](https://img.shields.io/github/issues/mportuga/eslint-detailed-reporter.svg?style=flat)](https://github.com/mportuga/eslint-detailed-reporter/issues)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmportuga%2Feslint-detailed-reporter.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmportuga%2Feslint-detailed-reporter?ref=badge_shield)
 
 > A Detailed HTML reporter for ESLINT based on the code written by Julian Laval for [eslint's default HTML reporter](http://eslint.org/docs/user-guide/formatters/#html) and inspired by Sven Piller's [eslint-formatter-markdown](https://github.com/sven-piller/eslint-formatter-markdown) and [mochajs](https://mochajs.org/)'s HTML coverage report.
 
@@ -127,3 +128,6 @@ See [CHANGELOG](./CHANGELOG.md)
 ## License
 
 [MIT](https://opensource.org/licenses/MIT) © Marcelo S. Portugal
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmportuga%2Feslint-detailed-reporter.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmportuga%2Feslint-detailed-reporter?ref=badge_large)
