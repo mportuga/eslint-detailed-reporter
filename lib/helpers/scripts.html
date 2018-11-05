@@ -1,5 +1,7 @@
 <script type="text/javascript">
-	let lintResults = document.querySelectorAll('tr.lint-result'),
+	'use strict';
+
+	const lintResults = document.querySelectorAll('tr.lint-result'),
 		filters = document.querySelectorAll('input[name="filters"]'),
 		tabs = document.querySelectorAll('.nav-tabs > li > button'),
 		searchBar = document.querySelector('#filterSearch');
@@ -16,16 +18,16 @@
 	}
 
 	function toggleAccordion() {
-		let resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
+		const resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
 		this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
 		toggleDisplay(resultDetails[0]);
 	}
 
 	function applyFilterAndSearch(filterValue, text) {
 		lintResults.forEach(result => {
-			let resultText = result.getElementsByClassName("result-filepath")[0].innerText;
+			const resultText = result.getElementsByClassName("result-filepath")[0].innerText;
 
-			let includesFilter = result.className.includes(filterValue);
+			const includesFilter = result.className.includes(filterValue);
 
 			if (text && text.length > 0) {
 				includesFilter = includesFilter && resultText.toLowerCase().includes(text.toLowerCase());
@@ -62,22 +64,19 @@
 	}
 
 	function filterResults() {
-		let filterValue = document.querySelector('input[name="filters"]:checked').value;
-		let text = document.querySelector("#filterSearch").value;
+		const filterValue = document.querySelector('input[name="filters"]:checked').value;
+		const text = document.querySelector("#filterSearch").value;
 		applyFilterAndSearch(filterValue, text);
 	}
 
 	function activateTab() {
-		var currentTabs = document.querySelectorAll(this.getAttribute('data-parent') + ' .nav-tabs > li'),
+		const currentTabs = document.querySelectorAll(this.getAttribute('data-parent') + ' .nav-tabs > li'),
 			tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
 			tabContent = document.getElementById(this.getAttribute('data-content'));
 
-		for (var i = 0; i < currentTabs.length; i++) {
-			disableTabs(currentTabs[i]);
-		}
-		for (var j = 0; j < tabPanes.length; j++) {
-			hideElement(tabPanes[j]);
-		}
+		currentTabs.forEach(c => disableTabs(c));
+		tabPanes.forEach(t => hideElement(t));
+
 		this.parentNode.className = 'active';
 		toggleDisplay(tabContent);
 	}
