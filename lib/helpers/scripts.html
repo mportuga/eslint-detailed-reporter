@@ -1,10 +1,10 @@
 <script type="text/javascript">
-	var lintResults = document.querySelectorAll('tr.lint-result'),
+	let lintResults = document.querySelectorAll('tr.lint-result'),
 		filters = document.querySelectorAll('input[name="filters"]'),
 		tabs = document.querySelectorAll('.nav-tabs > li > button'),
 		searchBar = document.querySelector('#filterSearch');
 
-	// helper functions
+	// ------------------------ HELPER FUNCTIONS ------------------------
 	function hideElement(element) {
 		if (!element.className.includes('hidden')) {
 			element.className = element.className + ' hidden';
@@ -15,54 +15,16 @@
 		element.className = element.className.includes('hidden') ? element.className.replace(' hidden', '') : element.className + ' hidden';
 	}
 
-	// accordion
-	for (var i = 0; i < lintResults.length; i++) {
-		var result = lintResults[i];
-
-		result.addEventListener('click', handleResultClick);
-		result.addEventListener('keydown', function onKeydown(event) {
-			if (event.which === 13) {
-				handleResultClick.apply(this);
-			}
-		});
-	}
-
-	function handleResultClick() {
-		if (!this.className.includes('bg-success')) {
-			toggleAccordion.apply(this);
-		}
-		// TODO: Comment this back in when I can support it in example page
-		//		window.location.href = '#' + this.getAttribute('id');
-	}
-
 	function toggleAccordion() {
-		var resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
-
+		let resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
 		this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
 		toggleDisplay(resultDetails[0]);
 	}
 
-	// filter
-	for (var j = 0; j < filters.length; j++) {
-		filters[j].addEventListener('change', filterResults);
-	}
+	function applyFilterAndSearch(filterValue, text) {
+		lintResults.forEach(result => {
+			let resultText = result.getElementsByClassName("result-filepath")[0].innerText;
 
-	function _filterResultForLabel(filterValue, text) {
-		for (var i = 0; i < lintResults.length; i++) {
-			var result = lintResults[i];
-			var resultText = result.getElementsByClassName("result-filepath")[0].innerText;
-			// if (filterValue && text && text.length > 0) {
-			// 	var resultText = result.getElementsByClassName("result-filepath")[0].innerText;
-			// 	if (result.className.includes(filterValue) && resultText.toLowerCase().includes(text.toLowerCase())) {
-			// 		result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
-			// 	}
-			// } else if (filterValue) {
-			// 	if (result.className.includes(filterValue)) {
-			// 		result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
-			// 	}
-			// } else {
-			// 	hideElement(result);
-			// }
 			let includesFilter = result.className.includes(filterValue);
 
 			if (text && text.length > 0) {
@@ -78,18 +40,31 @@
 			if (result.className.includes('hidden') && result.className.includes('open')) {
 				toggleAccordion.apply(result);
 			}
+		})
+	}
+
+	function disableTabs(tab) {
+		tab.className = '';
+	}
+
+	function clearFilters() {
+		applyFilterAndSearch("lint-result");
+	}
+
+	// ------------------------ EVENT HANDLERS ------------------------
+
+	function handleResultClick() {
+		if (!this.className.includes('bg-success')) {
+			toggleAccordion.apply(this);
 		}
+		// TODO: Comment this back in when I can support it in example page
+		// window.location.href = '#' + this.getAttribute('id');
 	}
 
 	function filterResults() {
-		var filterValue = document.querySelector('input[name="filters"]:checked').value;
-		var text = document.querySelector("#filterSearch").value;
-		_filterResultForLabel(filterValue, text);
-	}
-
-	// tabs
-	for (var k = 0; k < tabs.length; k++) {
-		tabs[k].addEventListener('click', activateTab);
+		let filterValue = document.querySelector('input[name="filters"]:checked').value;
+		let text = document.querySelector("#filterSearch").value;
+		applyFilterAndSearch(filterValue, text);
 	}
 
 	function activateTab() {
@@ -107,33 +82,22 @@
 		toggleDisplay(tabContent);
 	}
 
-	function disableTabs(tab) {
-		tab.className = '';
-	}
+	// ------------------------ REGISTER EVENTS ------------------------
 
-	function clearFilters(){
-		_filterResultForLabel("lint-result");
-	}
-
-	function filterSearch() {
-		var text = document.querySelector("#filterSearch").value;
-		if (text.length === 0) clearFilters();
-		if (text.length < 3) return;
-		for (var i = 0; i < lintResults.length; i++) {
-			var result = lintResults[i];
-			var resultText = result.getElementsByClassName("result-filepath")[0].innerText;
-
-			if (resultText.toLowerCase().includes(text.toLowerCase())) {
-				result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
-			} else {
-				hideElement(result);
+	// accordion
+	lintResults.forEach(result => {
+		result.addEventListener('click', handleResultClick);
+		result.addEventListener('keydown', function onKeydown(event) {
+			if (event.which === 13) {
+				handleResultClick.apply(this);
 			}
+		});
+	})
 
-			if (result.className.includes('hidden') && result.className.includes('open')) {
-				toggleAccordion.apply(result);
-			}
-		}
-	}
+	// tabs
+	tabs.forEach(tab => tab.addEventListener('click', activateTab));
 
+	// filter
+	filters.forEach(filter => filter.addEventListener('change', filterResults));
 
 </script>
