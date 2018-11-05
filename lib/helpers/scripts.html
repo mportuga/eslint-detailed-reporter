@@ -1,7 +1,8 @@
 <script type="text/javascript">
 	var lintResults = document.querySelectorAll('tr.lint-result'),
 		filters = document.querySelectorAll('input[name="filters"]'),
-		tabs = document.querySelectorAll('.nav-tabs > li > button');
+		tabs = document.querySelectorAll('.nav-tabs > li > button'),
+		searchBar = document.querySelector('#filterSearch');
 
 	// helper functions
 	function hideElement(element) {
@@ -15,7 +16,7 @@
 	}
 
 	// accordion
-	for(var i = 0; i < lintResults.length; i++) {
+	for (var i = 0; i < lintResults.length; i++) {
 		var result = lintResults[i];
 
 		result.addEventListener('click', handleResultClick);
@@ -31,7 +32,7 @@
 			toggleAccordion.apply(this);
 		}
 		// TODO: Comment this back in when I can support it in example page
-//		window.location.href = '#' + this.getAttribute('id');
+		//		window.location.href = '#' + this.getAttribute('id');
 	}
 
 	function toggleAccordion() {
@@ -42,18 +43,33 @@
 	}
 
 	// filter
-	for(var j = 0; j < filters.length; j++) {
+	for (var j = 0; j < filters.length; j++) {
 		filters[j].addEventListener('change', filterResults);
 	}
 
-	function filterResults() {
-		var filterValue = document.querySelector('input[name="filters"]:checked').value;
-
-
-		for(var i = 0; i < lintResults.length; i++) {
+	function _filterResultForLabel(filterValue, text) {
+		for (var i = 0; i < lintResults.length; i++) {
 			var result = lintResults[i];
+			var resultText = result.getElementsByClassName("result-filepath")[0].innerText;
+			// if (filterValue && text && text.length > 0) {
+			// 	var resultText = result.getElementsByClassName("result-filepath")[0].innerText;
+			// 	if (result.className.includes(filterValue) && resultText.toLowerCase().includes(text.toLowerCase())) {
+			// 		result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
+			// 	}
+			// } else if (filterValue) {
+			// 	if (result.className.includes(filterValue)) {
+			// 		result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
+			// 	}
+			// } else {
+			// 	hideElement(result);
+			// }
+			let includesFilter = result.className.includes(filterValue);
 
-			if (result.className.includes(filterValue)) {
+			if (text && text.length > 0) {
+				includesFilter = includesFilter && resultText.toLowerCase().includes(text.toLowerCase());
+			}
+
+			if (includesFilter) {
 				result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
 			} else {
 				hideElement(result);
@@ -65,8 +81,14 @@
 		}
 	}
 
+	function filterResults() {
+		var filterValue = document.querySelector('input[name="filters"]:checked').value;
+		var text = document.querySelector("#filterSearch").value;
+		_filterResultForLabel(filterValue, text);
+	}
+
 	// tabs
-	for(var k = 0; k < tabs.length; k++) {
+	for (var k = 0; k < tabs.length; k++) {
 		tabs[k].addEventListener('click', activateTab);
 	}
 
@@ -75,10 +97,10 @@
 			tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
 			tabContent = document.getElementById(this.getAttribute('data-content'));
 
-		for(var i = 0; i < currentTabs.length; i++) {
+		for (var i = 0; i < currentTabs.length; i++) {
 			disableTabs(currentTabs[i]);
 		}
-		for(var j = 0; j < tabPanes.length; j++) {
+		for (var j = 0; j < tabPanes.length; j++) {
 			hideElement(tabPanes[j]);
 		}
 		this.parentNode.className = 'active';
@@ -88,4 +110,30 @@
 	function disableTabs(tab) {
 		tab.className = '';
 	}
+
+	function clearFilters(){
+		_filterResultForLabel("lint-result");
+	}
+
+	function filterSearch() {
+		var text = document.querySelector("#filterSearch").value;
+		if (text.length === 0) clearFilters();
+		if (text.length < 3) return;
+		for (var i = 0; i < lintResults.length; i++) {
+			var result = lintResults[i];
+			var resultText = result.getElementsByClassName("result-filepath")[0].innerText;
+
+			if (resultText.toLowerCase().includes(text.toLowerCase())) {
+				result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
+			} else {
+				hideElement(result);
+			}
+
+			if (result.className.includes('hidden') && result.className.includes('open')) {
+				toggleAccordion.apply(result);
+			}
+		}
+	}
+
+
 </script>
