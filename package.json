@@ -37,20 +37,20 @@
     "eslint": "3.0.0 - 4.9999.9999"
   },
   "dependencies": {
-    "lodash": "^4.16.6"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "eslint": "^4.15.0",
     "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.4.1",
-    "eslint-plugin-lodash": "^2.2.0",
+    "eslint-plugin-lodash": "^2.7.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-eslint": "^19.0.0",
     "grunt-force-task": "^2.0.0",
     "grunt-protractor-runner": "^5.0.0",
     "load-grunt-tasks": "^3.5.2",
-    "pm2": "^2.4.2",
+    "pm2": "^2.10.4",
     "protractor": "^5.1.1"
   }
 }
