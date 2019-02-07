@@ -1,3 +1,14 @@
+<a name="0.7.4"></a>
+## [0.7.4](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.7.3...v0.7.4) (2019-02-07)
+
+
+### Bug Fixes
+
+* **assets:** put assets in output dir ([e9c9429](https://github.com/mportuga/eslint-detailed-reporter/commit/e9c9429))
+* **assets:** wrong var ([6b5c30c](https://github.com/mportuga/eslint-detailed-reporter/commit/6b5c30c))
+
+
+
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.7.2...v0.7.3) (2018-01-11)
 
@@ -50,8 +61,8 @@
 
 ### Bug Fixes
 
-* **details tab buttons:** Ensuring all tabs works as expected ([b6b5237](https://github.com/mportuga/eslint-detailed-reporter/commit/b6b5237))
-* **HTML in JS:** Fixes rendering issues with HTML in JS files. ([712e1c1](https://github.com/mportuga/eslint-detailed-reporter/commit/712e1c1))
+* **details tab buttons:** Ensuring all tabs works as expected ([b6b5237](https://github.com/mportuga/eslint-detailed-reporter/commit/b6b5237)), closes [#3](https://github.com/mportuga/eslint-detailed-reporter/issues/3)
+* **HTML in JS:** Fixes rendering issues with HTML in JS files. ([712e1c1](https://github.com/mportuga/eslint-detailed-reporter/commit/712e1c1)), closes [#4](https://github.com/mportuga/eslint-detailed-reporter/issues/4)
 
 
 
