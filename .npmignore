@@ -6,3 +6,4 @@ fixture
 node_modules
 test
 gruntfile.js
+_config.yml
