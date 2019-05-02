@@ -1,3 +1,15 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.7.4...v0.8.0) (2019-05-02)
+
+
+### Bug Fixes
+
+* update compatible eslint version ([ee6fcf8](https://github.com/mportuga/eslint-detailed-reporter/commit/ee6fcf8)), closes [#14](https://github.com/mportuga/eslint-detailed-reporter/issues/14)
+* **package-lock:** update subdependencies ([5c0114f](https://github.com/mportuga/eslint-detailed-reporter/commit/5c0114f))
+* **template-generator:** remove double call of getOutputPath ([4791dcc](https://github.com/mportuga/eslint-detailed-reporter/commit/4791dcc))
+
+
+
 <a name="0.7.4"></a>
 ## [0.7.4](https://github.com/mportuga/eslint-detailed-reporter/compare/v0.7.3...v0.7.4) (2019-02-07)
 
