@@ -20,7 +20,7 @@
 			<fieldset class="filters">
 				<legend>Filters:</legend>
 				<label>
-					<input type="radio" name="filters" value="lint-result" checked>
+					<input type="radio" name="filters" value="lint-result" checked onclick="clearFilters()">
 					<span class="btn-radio">All</span>
 				</label>
 				<label>
@@ -31,12 +31,22 @@
 					<input type="radio" name="filters" value="error">
 					<span class="btn-radio text-error">Errors</span>
 				</label>
+				<label>
+					<input type="text" name="search" id="filterSearch" placeholder="Search files by name" onchange="filterResults()" onkeyup="filterResults()">
+				</label>
 			</fieldset>
 			<table id="fileOverview">
 				<tbody>
 					<%= results %>
 				</tbody>
 			</table>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
 		</div>
 	</div>
 	<%= scripts %>

@@ -1,9 +1,12 @@
 <script type="text/javascript">
-	var lintResults = document.querySelectorAll('tr.lint-result'),
-		filters = document.querySelectorAll('input[name="filters"]'),
-		tabs = document.querySelectorAll('.nav-tabs > li > button');
+	'use strict';
 
-	// helper functions
+	const lintResults = document.querySelectorAll('tr.lint-result'),
+		filters = document.querySelectorAll('input[name="filters"]'),
+		tabs = document.querySelectorAll('.nav-tabs > li > button'),
+		searchBar = document.querySelector('#filterSearch');
+
+	// ------------------------ HELPER FUNCTIONS ------------------------
 	function hideElement(element) {
 		if (!element.className.includes('hidden')) {
 			element.className = element.className + ' hidden';
@@ -14,46 +17,23 @@
 		element.className = element.className.includes('hidden') ? element.className.replace(' hidden', '') : element.className + ' hidden';
 	}
 
-	// accordion
-	for(var i = 0; i < lintResults.length; i++) {
-		var result = lintResults[i];
-
-		result.addEventListener('click', handleResultClick);
-		result.addEventListener('keydown', function onKeydown(event) {
-			if (event.which === 13) {
-				handleResultClick.apply(this);
-			}
-		});
-	}
-
-	function handleResultClick() {
-		if (!this.className.includes('bg-success')) {
-			toggleAccordion.apply(this);
-		}
-		// TODO: Comment this back in when I can support it in example page
-//		window.location.href = '#' + this.getAttribute('id');
-	}
-
 	function toggleAccordion() {
-		var resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
-
+		const resultDetails = document.getElementsByClassName(this.getAttribute('data-group'));
 		this.className = this.className.includes('open') ? this.className.replace(' open', '') : this.className + ' open';
 		toggleDisplay(resultDetails[0]);
 	}
 
-	// filter
-	for(var j = 0; j < filters.length; j++) {
-		filters[j].addEventListener('change', filterResults);
-	}
+	function applyFilterAndSearch(filterValue, text) {
+		lintResults.forEach(result => {
+			const resultText = result.getElementsByClassName("result-filepath")[0].innerText;
 
-	function filterResults() {
-		var filterValue = document.querySelector('input[name="filters"]:checked').value;
+			const includesFilter = result.className.includes(filterValue);
 
+			if (text && text.length > 0) {
+				includesFilter = includesFilter && resultText.toLowerCase().includes(text.toLowerCase());
+			}
 
-		for(var i = 0; i < lintResults.length; i++) {
-			var result = lintResults[i];
-
-			if (result.className.includes(filterValue)) {
+			if (includesFilter) {
 				result.className = result.className.includes('hidden') ? result.className.replace(' hidden', '') : result.className;
 			} else {
 				hideElement(result);
@@ -62,30 +42,61 @@
 			if (result.className.includes('hidden') && result.className.includes('open')) {
 				toggleAccordion.apply(result);
 			}
-		}
-	}
-
-	// tabs
-	for(var k = 0; k < tabs.length; k++) {
-		tabs[k].addEventListener('click', activateTab);
-	}
-
-	function activateTab() {
-		var currentTabs = document.querySelectorAll(this.getAttribute('data-parent') + ' .nav-tabs > li'),
-			tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
-			tabContent = document.getElementById(this.getAttribute('data-content'));
-
-		for(var i = 0; i < currentTabs.length; i++) {
-			disableTabs(currentTabs[i]);
-		}
-		for(var j = 0; j < tabPanes.length; j++) {
-			hideElement(tabPanes[j]);
-		}
-		this.parentNode.className = 'active';
-		toggleDisplay(tabContent);
+		})
 	}
 
 	function disableTabs(tab) {
 		tab.className = '';
 	}
+
+	function clearFilters() {
+		applyFilterAndSearch("lint-result");
+	}
+
+	// ------------------------ EVENT HANDLERS ------------------------
+
+	function handleResultClick() {
+		if (!this.className.includes('bg-success')) {
+			toggleAccordion.apply(this);
+		}
+		// TODO: Comment this back in when I can support it in example page
+		// window.location.href = '#' + this.getAttribute('id');
+	}
+
+	function filterResults() {
+		const filterValue = document.querySelector('input[name="filters"]:checked').value;
+		const text = document.querySelector("#filterSearch").value;
+		applyFilterAndSearch(filterValue, text);
+	}
+
+	function activateTab() {
+		const currentTabs = document.querySelectorAll(this.getAttribute('data-parent') + ' .nav-tabs > li'),
+			tabPanes = document.querySelectorAll(this.getAttribute('data-parent') + ' .tab-pane'),
+			tabContent = document.getElementById(this.getAttribute('data-content'));
+
+		currentTabs.forEach(c => disableTabs(c));
+		tabPanes.forEach(t => hideElement(t));
+
+		this.parentNode.className = 'active';
+		toggleDisplay(tabContent);
+	}
+
+	// ------------------------ REGISTER EVENTS ------------------------
+
+	// accordion
+	lintResults.forEach(result => {
+		result.addEventListener('click', handleResultClick);
+		result.addEventListener('keydown', function onKeydown(event) {
+			if (event.which === 13) {
+				handleResultClick.apply(this);
+			}
+		});
+	})
+
+	// tabs
+	tabs.forEach(tab => tab.addEventListener('click', activateTab));
+
+	// filter
+	filters.forEach(filter => filter.addEventListener('change', filterResults));
+
 </script>
