@@ -10,9 +10,6 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git commit -am \"chore(CHANGELOG): Updating Changelog\"",
     "command-line": "eslint fixture/green_file.js -f lib/detailed.js -o example/success-report.html",
     "grunt-test": "grunt force:eslint",
-    "protractor-start": "node_modules/protractor/bin/webdriver-manager start",
-    "protractor": "npm start && grunt protractor:local && npm stop",
-    "protractor-ci": "npm start && grunt protractor:ci && npm stop",
     "postversion": "npm run changelog && git push && git push --tags && npm publish ./"
   },
   "repository": {
@@ -29,27 +26,26 @@
     "detailed",
     "plato"
   ],
-  "author": "Marcelo S. Portugal <marceloquarion@gmail.com> (http://portugaldev.com/)",
+  "author": "Marcelo S. Portugal <marceloquarion@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/mportuga/eslint-detailed-reporter",
   "bugs": "https://github.com/mportuga/eslint-detailed-reporter/issues",
   "peerDependencies": {
-    "eslint": "3.0.0 - 5.9999.9999"
+    "eslint": ">=3.0.0 <9"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-plugin-angular": "^4.0.0",
-    "eslint-plugin-lodash": "^5.1.0",
-    "grunt": "^1.0.4",
-    "grunt-cli": "^1.3.2",
-    "grunt-eslint": "^21.0.0",
-    "grunt-force-task": "^2.0.0",
-    "grunt-protractor-runner": "^5.0.0",
-    "load-grunt-tasks": "^4.0.0",
-    "pm2": "^3.5.0",
-    "protractor": "^5.4.2"
+    "conventional-changelog": "^3.1.25",
+    "eslint": "^8.15.0",
+    "eslint-plugin-angular": "^4.1.0",
+    "eslint-plugin-lodash": "^7.4.0",
+    "grunt": "^1.5.3",
+    "grunt-cli": "^1.4.3",
+    "grunt-eslint": "^24.0.0",
+    "grunt-force-task": "^3.0.0",
+    "load-grunt-tasks": "^5.1.0",
+    "pm2": "^5.2.0"
   }
 }
