@@ -2,7 +2,7 @@ const http = require('http'),
 	fs = require('fs');
 
 
-// Creates a simple HTML server so that we can run protractor against the example report
+// Creates a simple HTML server
 // Credit to David Granado and streppel on http://stackoverflow.com/questions/4720343/loading-basic-html-in-node-js
 fs.readFile('./example/example-report.html', function createSimpleServer(err, html) {
 	'use strict';
