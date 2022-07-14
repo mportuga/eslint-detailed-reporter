@@ -27,7 +27,7 @@
 		lintResults.forEach(result => {
 			const resultText = result.getElementsByClassName("result-filepath")[0].innerText;
 
-			const includesFilter = result.className.includes(filterValue);
+			let includesFilter = result.className.includes(filterValue);
 
 			if (text && text.length > 0) {
 				includesFilter = includesFilter && resultText.toLowerCase().includes(text.toLowerCase());
