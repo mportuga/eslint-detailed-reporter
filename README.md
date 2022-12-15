@@ -13,8 +13,8 @@
 ## Features
 
 - Total count of problems on linted files(counting both errors and warnings)
-- Tables with top 5 warnings and errors in the linted files.
-- List of top 5 files with the most problems.
+- Tables with top warnings and errors in the linted files.
+- List of top files with the most problems.
 - View of source code with issues for files with issues.
 - Summary of issues per file
 - Links to the rule descriptions for all default eslint rules, as well as angular and lodash rules.
@@ -88,6 +88,21 @@ gulp.src(['js/**/*.js'])
       fs.writeFileSync(path.join(__dirname, 'report-results.html'), results);
     })
   );
+```
+
+### Configuring Summary Results
+
+By default the report will list the top 5 offensive rules and files. You can configure the number of results you wish to display in the summary by using these environment variables. 
+
+```js
+ESLINT_DETAILED_REPORT_MAX_RULES
+ESLINT_DETAILED_REPORT_MAX_FILES
+```
+
+Setting env vars will vary based on your OS and usage. When using the ESLINT CLI for example, you could just prepend your vars.
+
+```js
+ESLINT_DETAILED_REPORT_MAX_RULES=10 ESLINT_DETAILED_REPORT_MAX_FILES=10 eslint file.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
 ```
 
 ## Dependencies
