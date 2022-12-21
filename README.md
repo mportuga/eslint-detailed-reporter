@@ -105,6 +105,15 @@ Setting env vars will vary based on your OS and usage. When using the ESLINT CLI
 ESLINT_DETAILED_REPORT_MAX_RULES=10 ESLINT_DETAILED_REPORT_MAX_FILES=10 eslint file.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
 ```
 
+### Configuring Details Results
+
+If you have a lot of problems, you might want to limit the number of files displayed in the Details section of the report. You can use the `ESLINT_DETAILED_REPORT_LIMIT_DETAILS` env var to only show details for your top offending files.
+
+```js
+ESLINT_DETAILED_REPORT_LIMIT_DETAILS=true eslint file.js -f node_modules/eslint-detailed-reporter/lib/detailed.js -o report.html
+```
+
+
 ## Dependencies
 
 - [lodash](https://github.com/lodash/lodash): Lodash modular utilities.
